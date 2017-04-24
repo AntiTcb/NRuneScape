@@ -1,8 +1,8 @@
 ﻿namespace NRuneScape
 {
-    public interface IActivityHiScore : IHiScore
+    public interface IActivityHiscore : IHiscore
     {
-        /// <summary> Gets the score for this high score value. </summary>
-        int Score { get; }
+        /// <summary> Gets the score for this hiscore. </summary>
+        int Score { get; } 
     }
 }

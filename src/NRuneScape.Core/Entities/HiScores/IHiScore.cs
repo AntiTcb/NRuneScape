@@ -1,11 +1,10 @@
 ﻿namespace NRuneScape
 {
-    public interface IHiScore
+    public interface IHiscore
     {
-        /// <summary> Gets the name for this high score value. </summary>
-        string Name { get; }
-
-        /// <summary> Gets the rank for this high score value. </summary>
+        /// <summary> Gets the name for this hiscore. </summary>
+        string Name { get; }                 
+        /// <summary> Gets the rank for this hiscore. </summary>
         int Rank { get; }
     }
 }

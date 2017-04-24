@@ -2,6 +2,9 @@
 {
     public interface IOSRSHiScore
     {
-        OSRSGameMode GameMode { get; }
+        /// <summary>
+        /// Gets the game mode of the account for this hiscore
+        /// </summary>
+        OSGameMode GameMode { get; }
     }
 }

@@ -32,28 +32,28 @@ namespace NRuneScape.OldSchool.API
             }
         }
 
-        internal async Task<Character> GetCharacterAsync(string accountName, OSRSGameMode gameMode)
+        internal async Task<HiscoreCharacter> GetCharacterAsync(string accountName, OSGameMode gameMode)
         {
             try
             {
                 switch (gameMode)
                 {
-                    case OSRSGameMode.Regular:
+                    case OSGameMode.Regular:
                         return await API.GetOSRSCharacterAsync(accountName).ConfigureAwait(false);
 
-                    case OSRSGameMode.Ironman:
+                    case OSGameMode.Ironman:
                         return await API.GetIronmanCharacterAsync(accountName).ConfigureAwait(false);
 
-                    case OSRSGameMode.UltimateIronman:
+                    case OSGameMode.UltimateIronman:
                         return await API.GetUltimateIronmanCharacterAsync(accountName).ConfigureAwait(false);
 
-                    case OSRSGameMode.HardcoreIronman:
+                    case OSGameMode.HardcoreIronman:
                         return await API.GetHardcoreIronmanCharacterAsync(accountName).ConfigureAwait(false);
 
-                    case OSRSGameMode.Deadman:
+                    case OSGameMode.Deadman:
                         return await API.GetDeadmanCharacterAsync(accountName).ConfigureAwait(false);
 
-                    case OSRSGameMode.DeadmanSeasonal:
+                    case OSGameMode.DeadmanSeasonal:
                         return await API.GetDeadmanSeasonalCharacterAsync(accountName).ConfigureAwait(false);
 
                     default:

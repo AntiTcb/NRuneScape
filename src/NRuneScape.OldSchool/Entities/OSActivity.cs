@@ -1,6 +1,6 @@
 ﻿namespace NRuneScape.OldSchool
 {
-    public enum OSRSActivity
+    public enum OSActivity
     {
         ClueScrollsAll,
         ClueScrollsEasy,

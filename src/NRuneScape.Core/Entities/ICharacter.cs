@@ -1,8 +1,10 @@
-﻿namespace NRuneScape
+﻿using System.Collections.Generic;
+
+namespace NRuneScape
 {
     public interface ICharacter : IUpdateable
     {
         /// <summary> Gets the name for this character. </summary>
-        string Name { get; }
+        string Name { get; }   
     }
 }

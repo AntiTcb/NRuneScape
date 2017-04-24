@@ -12,16 +12,16 @@ namespace NRuneScape.OldSchool
             ApiClient = new API.OSRSAPIClient();
         }
 
-        public async Task<OSRSCharacter> GetCharacterAsync(string accountName)
-            => await GetCharacterAsync(accountName, OSRSGameMode.Regular);
+        public async Task<OSHiscoreCharacter> GetCharacterAsync(string accountName)
+            => await GetCharacterAsync(accountName, OSGameMode.Regular);
 
-        public async Task<OSRSCharacter> GetCharacterAsync(string accountName, OSRSGameMode gameMode)
+        public async Task<OSHiscoreCharacter> GetCharacterAsync(string accountName, OSGameMode gameMode)
         {
             var model = await ApiClient.GetCharacterAsync(accountName, gameMode);
             if (model == null)
                 return null;
 
-            var entity = new OSRSCharacter(this, model);
+            var entity = new OSHiscoreCharacter(this, model);
             return entity;
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace NRuneScape
 {
-    public interface ISkillHiScore : IHiScore
+    public interface ISkillHiscore : IHiscore
     {
         /// <summary> Gets the experience for this high score value. </summary>
         long Experience { get; }

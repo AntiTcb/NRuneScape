@@ -1,6 +1,6 @@
 ﻿namespace NRuneScape.OldSchool
 {
-    public enum OSRSSkill
+    public enum OSSkill
     {
         Agility,
         Attack,

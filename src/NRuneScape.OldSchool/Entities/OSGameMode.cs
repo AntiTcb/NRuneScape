@@ -3,7 +3,7 @@
 namespace NRuneScape.OldSchool
 {
     [Flags]
-    public enum OSRSGameMode : byte
+    public enum OSGameMode : byte
     {
         Regular = 1,
         Ironman = 2,

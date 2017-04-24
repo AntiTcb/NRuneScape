@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using Xunit;
-using NRuneScape.OldSchool;
+using Xunit;                
 
 namespace NRuneScape.OldSchool.Tests
 {
@@ -16,7 +15,7 @@ namespace NRuneScape.OldSchool.Tests
         }
 
         [Fact]
-        public async Task Test_GetRegularCharacter()
+        public async Task GetRegular_IsAntiTcb_ReturnsAccount()
         {
             var account = await _client.GetCharacterAsync(accountName);
             Assert.True(account.Name == "Anti-tcb");
@@ -24,38 +23,52 @@ namespace NRuneScape.OldSchool.Tests
         }      
 
         [Fact]
-        public async Task Test_GetIronmanCharacter()
+        public async Task GetIronman_IsAntiTcbAndNoIronmanCharacterExists_ReturnsNull()
         {
-            var account = await _client.GetCharacterAsync(accountName, OSRSGameMode.Ironman);
+            var account = await _client.GetCharacterAsync(accountName, OSGameMode.Ironman);
             Assert.Null(account);
         }
 
         [Fact]
-        public async Task Test_GetHardcoreIronmanCharacter()
+        public async Task GetHardcoreIronMan_IsAntiTcbAndDoesNotExist_ReturnsNull()
         {
-            var account = await _client.GetCharacterAsync(accountName, OSRSGameMode.HardcoreIronman);
+            var account = await _client.GetCharacterAsync(accountName, OSGameMode.HardcoreIronman);
             Assert.Null(account);
         }
 
         [Fact]
-        public async Task Test_GetUltimateIronmanCharacter()
+        public async Task GetUltimateIronman_IsAntiTcbAndDoesNotExist_ReturnsNull()
         {
-            var account = await _client.GetCharacterAsync(accountName, OSRSGameMode.UltimateIronman);
+            var account = await _client.GetCharacterAsync(accountName, OSGameMode.UltimateIronman);
             Assert.Null(account);
         }
 
         [Fact]
-        public async Task Test_GetDeadmanCharacter()
+        public async Task GetDeadman_IsAntiTcb_ReturnsAccount()
         {
-            var account = await _client.GetCharacterAsync(accountName, OSRSGameMode.Deadman);
+            var account = await _client.GetCharacterAsync(accountName, OSGameMode.Deadman);
             Assert.True(account.Overall.Level == 114);
         }
 
         [Fact]
-        public async Task Test_GetDeadmanSeasonalCharacter()
+        public async Task GetSeasonal_IsAntiTcb_ReturnsNull()
         {
-            var account = await _client.GetCharacterAsync(accountName, OSRSGameMode.DeadmanSeasonal);
+            var account = await _client.GetCharacterAsync(accountName, OSGameMode.DeadmanSeasonal);
             Assert.Null(account);
+        }
+
+        [Fact]
+        public async Task GetRegularSlayer_IsAntiTcb_Returns63()
+        {
+            var account = await _client.GetCharacterAsync("antitcb", OSGameMode.Regular);
+            Assert.True(account.Slayer.Level == 63);
+        }
+
+        [Fact]
+        public async Task GetRegularMasterClues_IsAntiTcb_ReturnsNegative1()
+        {
+            var account = await _client.GetCharacterAsync("anti-tcb", OSGameMode.Regular);
+            Assert.True(account.ClueScrollsMaster.Score == -1);
         }
 
         public void Dispose()
