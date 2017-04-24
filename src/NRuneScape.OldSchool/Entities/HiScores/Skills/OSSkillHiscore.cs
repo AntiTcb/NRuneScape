@@ -5,12 +5,17 @@ namespace NRuneScape.OldSchool
 {
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public class OSSkillHiscore : ISkillHiscore, IOSRSHiScore
-    {
-        public long Experience { get; private set; }
+    {                                                                          
+        /// <summary> Gets the experience for this skill hiscore. </summary>
+        public long? Experience { get; private set; }
+        /// <summary> Gets the game mode for this skill hiscore. </summary>
         public OSGameMode GameMode { get; private set; }
-        public int Level { get; private set; }
+        /// <summary> Gets the level for this skill hiscore. Returns null if unranked. </summary>
+        public int? Level { get; private set; }
+        /// <summary> Gets the skill name for this hiscore. Returns null if unranked. </summary>
         public string Name { get; private set; }
-        public int Rank { get; private set; }
+        /// <summary> Gets the rank for this skill hiscore. Returns null if unranked. </summary>
+        public int? Rank { get; private set; }
 
         internal static OSSkillHiscore Create(Model model, OSSkill name, OSGameMode gameMode)
         {
@@ -24,7 +29,7 @@ namespace NRuneScape.OldSchool
             };
         }
 
-        public void Deconstruct(out string name, out OSGameMode mode, out int level, out int rank, out long experience)
+        public void Deconstruct(out string name, out OSGameMode mode, out int? level, out int? rank, out long? experience)
         {
             name = Name;
             mode = GameMode;
@@ -33,7 +38,7 @@ namespace NRuneScape.OldSchool
             experience = Experience;
         }
 
-        public void Deconstruct(out string name, out int level, out int rank, out long experience)
+        public void Deconstruct(out string name, out int? level, out int? rank, out long? experience)
         {
             name = Name;
             level = Level;

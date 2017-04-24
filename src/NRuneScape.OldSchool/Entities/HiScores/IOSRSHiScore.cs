@@ -1,10 +1,7 @@
 ﻿namespace NRuneScape.OldSchool
 {
-    public interface IOSRSHiScore
+    public interface IOSRSHiScore : IHiscore
     {
-        /// <summary>
-        /// Gets the game mode of the account for this hiscore
-        /// </summary>
         OSGameMode GameMode { get; }
     }
 }

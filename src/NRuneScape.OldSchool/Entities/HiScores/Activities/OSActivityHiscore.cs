@@ -5,11 +5,15 @@ namespace NRuneScape.OldSchool
 {
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public class OSActivityHiscore : IActivityHiscore, IOSRSHiScore
-    {                                            
+    {                 
+        /// <summary> Gets the game mode of the account for this hiscore. </summary>
         public OSGameMode GameMode { get; private set; }
-        public string Name { get; private set; } 
-        public int Rank { get; private set; }
-        public int Score { get; private set; }
+        /// <summary> Gets the activity name for this hiscore. </summary>
+        public string Name { get; private set; }
+        /// <summary> Gets the rank for this hiscore. Returns null if unranked. </summary>
+        public int? Rank { get; private set; }
+        /// <summary> Gets the score for this hiscore. Returns null if unranked. </summary>
+        public int? Score { get; private set; }
 
         internal static OSActivityHiscore Create(Model model, OSActivity name, OSGameMode gameMode)
         {
@@ -22,7 +26,7 @@ namespace NRuneScape.OldSchool
             };
         }
 
-        public void Deconstruct(out string name, out OSGameMode mode, out int score, out int rank)
+        public void Deconstruct(out string name, out OSGameMode mode, out int? score, out int? rank)
         {
             name = Name;
             mode = GameMode;
@@ -30,7 +34,7 @@ namespace NRuneScape.OldSchool
             rank = Rank;
         }
 
-        public void Deconstruct(out string name, out int score, out int rank)
+        public void Deconstruct(out string name, out int? score, out int? rank)
         {
             name = Name;
             score = Score;
