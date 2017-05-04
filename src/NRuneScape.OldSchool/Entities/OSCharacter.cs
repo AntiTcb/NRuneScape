@@ -1,9 +1,7 @@
-﻿using System;             
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace NRuneScape.OldSchool
-{ 
+{
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public abstract class OSCharacter : RestEntity, IOSCharacter
     {
@@ -12,11 +10,7 @@ namespace NRuneScape.OldSchool
         /// <summary> Gets the account name for this character. </summary>
         public string Name { get; internal set; }
 
-        internal OSCharacter(OSRSClient client) : base(client) { }
-        /// <summary> Use a more derived type to update. Will throw a <see cref="NotImplementedException"/>.</summary>                        
-        /// <exception cref="NotImplementedException">Thrown on all cases. Use a more derived type to update.</exception>
-        public virtual Task UpdateAsync()
-            => throw new NotImplementedException($"{nameof(OSCharacter)} cannot be updated, use a more derived type.");
+        internal OSCharacter(OSClient client) : base(client) { }
 
         private string DebuggerDisplay => $"({Name} | {GameMode})";       
     }

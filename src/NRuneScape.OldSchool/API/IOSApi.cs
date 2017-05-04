@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace NRuneScape.OldSchool.API
 {
-    internal interface IOSRSAPI : IDisposable
+    internal interface IOSApi : IDisposable
     {
         [Get("m=hiscore_oldschool_deadman/index_lite.ws")]
         Task<HiscoreCharacter> GetDeadmanCharacterAsync([Query("player")] string accountName);

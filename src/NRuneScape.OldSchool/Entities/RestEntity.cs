@@ -5,9 +5,9 @@
         /// <summary>
         /// An instance of the client that retrieved this entity.
         /// </summary>
-        public OSRSClient RuneScape { get; }
+        public OSClient RuneScape { get; }
 
-        internal RestEntity(OSRSClient client)
+        internal RestEntity(OSClient client)
         {
             RuneScape = client;
         }

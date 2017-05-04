@@ -5,15 +5,23 @@ namespace NRuneScape.OldSchool
 {
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public class OSActivityHiscore : IActivityHiscore, IOSRSHiScore
-    {                 
-        /// <summary> Gets the game mode of the account for this hiscore. </summary>
-        public OSGameMode GameMode { get; private set; }
+    {
         /// <summary> Gets the activity name for this hiscore. </summary>
         public string Name { get; private set; }
+        /// <summary> Gets the game mode of the account for this hiscore. </summary>
+        public OSGameMode GameMode { get; private set; }
         /// <summary> Gets the rank for this hiscore. Returns null if unranked. </summary>
-        public int? Rank { get; private set; }
+        public int? Rank 
+        {
+            get { if (_rank == -1) return null; return _rank; }
+            private set { _rank = value ?? -1; }
+        }
         /// <summary> Gets the score for this hiscore. Returns null if unranked. </summary>
-        public int? Score { get; private set; }
+        public int? Score 
+        {
+            get { if (_score == -1) return null; return _score; }
+            private set { _score = value ?? -1; }
+        }
 
         internal static OSActivityHiscore Create(Model model, OSActivity name, OSGameMode gameMode)
         {
@@ -42,5 +50,7 @@ namespace NRuneScape.OldSchool
         }    
 
         private string DebuggerDisplay => $"({Name} | {GameMode}) S:{Score} | R:{Rank:N0}";
+        private int _rank;
+        private int _score;
     }
 }

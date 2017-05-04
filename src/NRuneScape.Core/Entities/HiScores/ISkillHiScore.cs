@@ -2,7 +2,7 @@
 {
     public interface ISkillHiscore : IHiscore
     {
-        long? Experience { get; }                                                 
-        int? Level { get; }
+        long Experience { get; }                                                 
+        int Level { get; }
     }
 }

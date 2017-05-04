@@ -5,15 +5,15 @@ namespace NRuneScape.OldSchool
     /// <summary>
     /// A client for interacting with OldSchool Runescape data sources.
     /// </summary>
-    public class OSRSClient : IRSClient
+    public class OSClient : IRSClient
     {
-        internal API.OSRSAPIClient ApiClient { get; }
+        internal API.OSApiClient ApiClient { get; }
 
         /// <summary>
         /// Creates a new REST OldSchool RuneScape client.
         /// </summary>
-        public OSRSClient() 
-            => ApiClient = new API.OSRSAPIClient(); 
+        public OSClient() 
+            => ApiClient = new API.OSApiClient(); 
 
         /// <summary>
         /// Gets the <see cref="OSHiscoreCharacter"/> with the given name and game mode, or null if not found.

@@ -7,7 +7,7 @@ using CharacterModel = NRuneScape.OldSchool.API.HiscoreCharacter;
 
 namespace NRuneScape.OldSchool
 {
-    public class OSHiscoreCharacter : OSCharacter, IOSHiscoreCharacter
+    public class OSHiscoreCharacter : OSCharacter, IOSHiscoreCharacter, IUpdateable
     {                                                                
         /// <summary> Returns a collection of activity hiscores. </summary>
         public IReadOnlyCollection<OSActivityHiscore> Activities => _activities.Values.ToImmutableArray();
@@ -86,20 +86,20 @@ namespace NRuneScape.OldSchool
         private ConcurrentDictionary<OSSkill, OSSkillHiscore> _skills;
 
         /// <summary> Updates all hiscores for this character. </summary>          
-        public override async Task UpdateAsync()
+        public async Task UpdateAsync()
         {
             var updatedModel = await RuneScape.ApiClient.GetCharacterAsync(Name, GameMode);
             Update(updatedModel);
         }                              
 
-        internal OSHiscoreCharacter(OSRSClient client, CharacterModel model) : base(client)
+        internal OSHiscoreCharacter(OSClient client, CharacterModel model) : base(client)
         {
             Name = model.Name;
             GameMode = model.Skills.Values.First().GameMode;
             Update(model);
         }
 
-        internal static OSCharacter Create(OSRSClient client, CharacterModel model)
+        internal static OSCharacter Create(OSClient client, CharacterModel model)
         {
             return new OSHiscoreCharacter(client, model);
         }

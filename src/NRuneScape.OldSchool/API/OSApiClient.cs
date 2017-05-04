@@ -4,16 +4,16 @@ using System.Threading.Tasks;
 
 namespace NRuneScape.OldSchool.API
 {
-    internal class OSRSAPIClient : IDisposable
+    internal class OSApiClient : IDisposable
     {
-        internal IOSRSAPI API => RestClient.For<IOSRSAPI>();
+        internal IOSApi API => RestClient.For<IOSApi>();
         internal RestClient RestClient { get; }
         protected bool _isDisposed;
         const string BASE_URI = "http://services.runescape.com";
 
-        public OSRSAPIClient() : this(new RestClient(BASE_URI) { ResponseDeserializer = new CharacterDeserializer() }) { }
+        public OSApiClient() : this(new RestClient(BASE_URI) { ResponseDeserializer = new HiscoreCharacterDeserializer() }) { }
 
-        public OSRSAPIClient(RestClient client)
+        public OSApiClient(RestClient client)
         {
             RestClient = client;
         }

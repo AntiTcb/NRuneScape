@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace NRuneScape.OldSchool.API
 {                                                            
-    internal class CharacterDeserializer : IResponseDeserializer
+    internal class HiscoreCharacterDeserializer : IResponseDeserializer
     {
         public T Deserialize<T>(string content, HttpResponseMessage response)
         {
