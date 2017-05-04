@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRuneScape.OldSchool.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugProj", "DebugProj\DebugProj.csproj", "{717F6C16-DCD9-414A-82A1-8846CEA3DD54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRuneScape.RuneScape3", "src\NRuneScape.RuneScape3\NRuneScape.RuneScape3.csproj", "{57236183-4823-44A7-9C60-D0F7AF9B8CFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{717F6C16-DCD9-414A-82A1-8846CEA3DD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{717F6C16-DCD9-414A-82A1-8846CEA3DD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{717F6C16-DCD9-414A-82A1-8846CEA3DD54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57236183-4823-44A7-9C60-D0F7AF9B8CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57236183-4823-44A7-9C60-D0F7AF9B8CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57236183-4823-44A7-9C60-D0F7AF9B8CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57236183-4823-44A7-9C60-D0F7AF9B8CFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +51,6 @@ Global
 		{05C47172-7F3D-4328-8682-E0FA0BE28599} = {6C871B35-51F4-488D-9748-B111FB84AE75}
 		{ED55F5FF-40CF-4D1D-A7B8-D7E20F7D600C} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
 		{717F6C16-DCD9-414A-82A1-8846CEA3DD54} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
+		{57236183-4823-44A7-9C60-D0F7AF9B8CFA} = {6C871B35-51F4-488D-9748-B111FB84AE75}
 	EndGlobalSection
 EndGlobal
