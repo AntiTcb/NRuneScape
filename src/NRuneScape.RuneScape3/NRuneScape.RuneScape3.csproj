@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="API\GrandExchange\" />
+    <Folder Include="API\Bestiary\" />
+    <Folder Include="API\WebsiteData\" />
+    <Folder Include="API\RuneMetrics\" />
+    <Folder Include="API\Solomons\" />
+    <Folder Include="API\Parsers\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RestEase" Version="1.4.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NRuneScape.Core\NRuneScape.Core.csproj" />
+  </ItemGroup>
+
+</Project>
