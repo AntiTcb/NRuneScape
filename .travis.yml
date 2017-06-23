@@ -1,0 +1,12 @@
+language: csharp
+solution: NRunescape.sln
+mono: none
+dotnet: 1.0.4
+dist: trusty
+
+install:
+- dotnet restore
+
+script:
+- dotnet build
+- dotnet test tests/NRunescape.Rest.Tests.csproj
