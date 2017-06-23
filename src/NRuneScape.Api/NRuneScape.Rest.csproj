@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <RootNamespace>NRuneScape.Rest</RootNamespace>
+    <AssemblyName>NRuneScape.Rest</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="RestEase" Version="1.4.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NRuneScape.Core\NRuneScape.Core.csproj" />
+  </ItemGroup>
+
+</Project>

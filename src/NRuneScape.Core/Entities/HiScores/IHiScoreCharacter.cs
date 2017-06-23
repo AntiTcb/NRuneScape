@@ -2,6 +2,9 @@
 
 namespace NRuneScape
 {
+    /// <summary>
+    /// The base interface for a character's hiscore values. 
+    /// </summary>
     public interface IHiscoreCharacter : ICharacter
     {
         /// <summary> Returns a collection of the activity hiscores for this character. </summary>
