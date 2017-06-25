@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRuneScape.Core", "src\NRuneScape.Core\NRuneScape.Core.csproj", "{317B8948-88AE-42EA-9965-CF70BAEB2C0C}"
 EndProject
@@ -11,11 +11,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Impls", "Impls", "{6C871B35
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRuneScape.OldSchool.Tests", "NRuneScape.OldSchool.Tests\NRuneScape.OldSchool.Tests.csproj", "{ED55F5FF-40CF-4D1D-A7B8-D7E20F7D600C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugProj", "DebugProj\DebugProj.csproj", "{717F6C16-DCD9-414A-82A1-8846CEA3DD54}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRuneScape.RuneScape3", "src\NRuneScape.RuneScape3\NRuneScape.RuneScape3.csproj", "{57236183-4823-44A7-9C60-D0F7AF9B8CFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRuneScape.Rest.Tests", "tests\NRuneScape.Rest.Tests\NRuneScape.Rest.Tests.csproj", "{B7500F3A-F89E-42B4-9FAE-989EBD0E8513}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55D9171A-9123-467D-9A85-8A1FB915EC67} = {55D9171A-9123-467D-9A85-8A1FB915EC67}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{608C1796-3A37-4DE0-950F-C337A0250875}"
+	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRuneScape.Rest", "src\NRuneScape.Rest\NRuneScape.Rest.csproj", "{55D9171A-9123-467D-9A85-8A1FB915EC67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRunescape.OldSchool.Tests", "tests\NRunescape.OldSchool.Tests\NRunescape.OldSchool.Tests.csproj", "{DECF3D8C-EBD7-450A-80C9-823DB643781D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +43,6 @@ Global
 		{05C47172-7F3D-4328-8682-E0FA0BE28599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05C47172-7F3D-4328-8682-E0FA0BE28599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05C47172-7F3D-4328-8682-E0FA0BE28599}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED55F5FF-40CF-4D1D-A7B8-D7E20F7D600C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED55F5FF-40CF-4D1D-A7B8-D7E20F7D600C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED55F5FF-40CF-4D1D-A7B8-D7E20F7D600C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED55F5FF-40CF-4D1D-A7B8-D7E20F7D600C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{717F6C16-DCD9-414A-82A1-8846CEA3DD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{717F6C16-DCD9-414A-82A1-8846CEA3DD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{717F6C16-DCD9-414A-82A1-8846CEA3DD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,14 +51,27 @@ Global
 		{57236183-4823-44A7-9C60-D0F7AF9B8CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57236183-4823-44A7-9C60-D0F7AF9B8CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57236183-4823-44A7-9C60-D0F7AF9B8CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7500F3A-F89E-42B4-9FAE-989EBD0E8513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7500F3A-F89E-42B4-9FAE-989EBD0E8513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7500F3A-F89E-42B4-9FAE-989EBD0E8513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7500F3A-F89E-42B4-9FAE-989EBD0E8513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D9171A-9123-467D-9A85-8A1FB915EC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D9171A-9123-467D-9A85-8A1FB915EC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D9171A-9123-467D-9A85-8A1FB915EC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D9171A-9123-467D-9A85-8A1FB915EC67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DECF3D8C-EBD7-450A-80C9-823DB643781D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DECF3D8C-EBD7-450A-80C9-823DB643781D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DECF3D8C-EBD7-450A-80C9-823DB643781D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DECF3D8C-EBD7-450A-80C9-823DB643781D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{05C47172-7F3D-4328-8682-E0FA0BE28599} = {6C871B35-51F4-488D-9748-B111FB84AE75}
-		{ED55F5FF-40CF-4D1D-A7B8-D7E20F7D600C} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
 		{717F6C16-DCD9-414A-82A1-8846CEA3DD54} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
 		{57236183-4823-44A7-9C60-D0F7AF9B8CFA} = {6C871B35-51F4-488D-9748-B111FB84AE75}
+		{B7500F3A-F89E-42B4-9FAE-989EBD0E8513} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
+		{DECF3D8C-EBD7-450A-80C9-823DB643781D} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
 	EndGlobalSection
 EndGlobal
