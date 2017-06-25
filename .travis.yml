@@ -3,10 +3,8 @@ solution: NRunescape.sln
 mono: none
 dotnet: 1.0.4
 dist: trusty
-
-install:
-- dotnet restore
+sudo: required
 
 script:
-- dotnet migrate NRuneScape.sln
+- dotnet restore
 - dotnet build --configuration Release --version-suffix beta-$TRAVIS_BUILDNUMBER
