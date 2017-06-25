@@ -8,7 +8,7 @@ configuration: Release
 
 build_script:
 - ps: appveyor-retry dotnet restore NRuneScape.sln
-- ps: dotnet build Discord.Net.sln
+- ps: dotnet build NRuneScape.sln
 
 test_script:
 - ps: dotnet test tests/NRuneScape.Rest.Tests/NRuneScape.Rest.Tests.csproj
