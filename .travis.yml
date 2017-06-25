@@ -9,6 +9,4 @@ install:
 
 script:
 - dotnet migrate
-- dotnet build
-- dotnet test tests/NRunescape.Rest.Tests.csproj
-- dotnet test tests/NRuneScape.OldSchool.Tests.csproj
+- dotnet build --configuration Release --version-suffix beta-$TRAVIS_BUILDNUMBER
