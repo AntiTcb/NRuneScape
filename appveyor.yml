@@ -1,0 +1,14 @@
+version: beta-{build}
+pull_requests:
+  do_not_increment_build_number: true
+image: Visual Studio 2017
+clone_folder: C:\Projects\Discord.Net
+
+configuration: Release
+
+build_script:
+- ps: appveyor-retry dotnet restore NRuneScape.sln
+- ps: dotnet build Discord.Net.sln
+
+test_script:
+- ps: dotnet test tests/NRuneScape.Rest.Tests/NRuneScape.Rest.Tests.csproj
