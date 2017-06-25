@@ -7,10 +7,10 @@ namespace NRuneScape
     /// </summary>
     public interface IHiscoreCharacter : ICharacter
     {
-        /// <summary> Returns a collection of the activity hiscores for this character. </summary>
-        IReadOnlyCollection<IActivityHiscore> Activities { get; }
-        /// <summary> Returns a collection of the activity hiscores for this character. </summary>
-        IReadOnlyCollection<ISkillHiscore> Skills { get; }
+        /// <summary> Returns a dictionary of the activity hiscores for this character. </summary>
+        IReadOnlyDictionary<int, IActivityHiscore> Activities { get; }
+        /// <summary> Returns a dictionary of the activity hiscores for this character. </summary>
+        IReadOnlyDictionary<int, ISkillHiscore> Skills { get; }
 
         /// <summary> Gets the Agility hiscore for this character. </summary>
         ISkillHiscore Agility { get; }

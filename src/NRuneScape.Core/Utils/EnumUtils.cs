@@ -22,10 +22,10 @@ namespace NRuneScape
             return routeInfo.Route;
         }
 
-        public static int GetCsvIndex<T>(T value) where T : struct
+        public static InfoAttribute GetInfo<T>(T value) where T : struct
         {
             var info = value.GetAttribute<T, InfoAttribute>();
-            return info.Index;
+            return info;
         }
 
         private static TAttr GetAttribute<TVal, TAttr>(this TVal value) where TVal : struct where TAttr : Attribute
