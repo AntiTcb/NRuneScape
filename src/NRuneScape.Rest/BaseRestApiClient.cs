@@ -11,7 +11,7 @@ namespace NRuneScape.API
         public IRuneScapeRestApi API { get; }
         protected bool _isDisposed;
 
-        internal abstract Task<BaseCharacter> GetCharacterAsync(string accountName, string route, string gameMode);
+        internal abstract Task<ICharacterModel> GetCharacterAsync(string accountName, string route, string gameMode);
 
         public BaseRestApiClient() : this(new RestDeserializer()) { }
         public BaseRestApiClient(IResponseDeserializer responseDeserializer)
@@ -21,7 +21,7 @@ namespace NRuneScape.API
             API.UserAgent = RuneScapeConfig.UserAgent;
         }
 
-        internal async Task<Item> GetItemByIdAsync(int itemId, string route)
+        internal async Task<Item> GetItemAsync(int itemId, string route)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace NRuneScape.API
             }
         }
 
-        internal async Task<IReadOnlyCollection<Item>> GetItemsByNameAsync(string itemName, string route, GetItemParams args)
+        internal async Task<IReadOnlyCollection<Item>> GetItemsAsync(string itemName, string route, GetItemParams args)
         {
             API.GERoute = route;
             var resp = await API.GetItemByNameAsync(itemName, args.AfterPageNum ?? 1);

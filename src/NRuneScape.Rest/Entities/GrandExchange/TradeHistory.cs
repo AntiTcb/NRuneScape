@@ -14,9 +14,9 @@ namespace NRuneScape.Rest
         {
             return new TradeHistory
             {
-                Trend = model.Trend,
-                Price = model.Price,
-                Change = model.Change
+                Trend = model?.Trend ?? PriceTrend.Neutral,
+                Price = model?.Price,
+                Change = model?.Change
             };
         }
 

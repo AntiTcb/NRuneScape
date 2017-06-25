@@ -13,7 +13,7 @@ namespace NRuneScape
         // Grand Exchange
         public static async Task<RSItem> GetItemAsync(RuneScapeRestClient client, int itemId, Game game)
         {
-            var model = await client.ApiClient.GetItemByIdAsync(itemId, EnumUtils.GetGERoute(game));
+            var model = await client.ApiClient.GetItemAsync(itemId, EnumUtils.GetGERoute(game));
             if (model == null)
                 return null;
 
@@ -40,7 +40,7 @@ namespace NRuneScape
                     };
                     if (info.Position != null)
                         args.AfterPageNum = info.Page + 1;
-                    var models = await client.ApiClient.GetItemsByNameAsync(name, route, args);
+                    var models = await client.ApiClient.GetItemsAsync(name, route, args);
                     return models
                         .Select(model => new RSItem(client, game, model))
                         .ToImmutableArray();

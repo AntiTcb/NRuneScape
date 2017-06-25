@@ -10,7 +10,7 @@ namespace NRuneScape.API
     {
         internal JsonSerializerSettings JsonSerializerSettings { get; set; }
         public abstract T Deserialize<T>(string content, HttpResponseMessage response);
-        protected abstract T DeserializeCharacter<T>(string content);
+        protected abstract T DeserializeCharacter<T>(string content, Uri requestUri);
 
         protected virtual T DeserializeItem<T>(string content)
         {
@@ -28,7 +28,7 @@ namespace NRuneScape.API
             return model.Items;
         }
 
-        protected void ValidateRequest(Uri requestUri)
+        protected string GetUsername(Uri requestUri)
         {
             var queries = requestUri.Query.TrimStart('?')
                 .Split('&')
@@ -37,6 +37,11 @@ namespace NRuneScape.API
 
             if (!queries.TryGetValue("player", out string username))
                 throw new ArgumentNullException("Username was undefined.");
+
+            return username.Replace('+', ' ').ToTitleCase();
         }
+
+        protected T ChangeType<T>(object obj)
+            => (T)Convert.ChangeType(obj, typeof(T));
     }
 }

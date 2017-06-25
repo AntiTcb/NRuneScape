@@ -4,7 +4,8 @@ using System.Text;
 
 namespace NRuneScape.API
 {
-    internal abstract class BaseCharacter
+    internal interface ICharacterModel
     {
+
     }
 }

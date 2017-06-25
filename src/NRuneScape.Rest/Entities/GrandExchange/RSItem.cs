@@ -33,9 +33,19 @@ namespace NRuneScape.Rest
             Update(model);
         }
 
+        protected RSItem(RSItem item) : base(item.RuneScape, item.GameSource)
+        {
+            Icon = item.Icon;
+            LargeIcon = item.LargeIcon;
+            Id = item.Id;
+            Category = item.Category;
+            CategoryIcon = item.CategoryIcon;
+            Name = item.Name;
+        }
+
         public async Task UpdateAsync()
         {
-            var updatedModel = await RuneScape.ApiClient.GetItemByIdAsync(Id, EnumUtils.GetGERoute(GameSource));
+            var updatedModel = await RuneScape.ApiClient.GetItemAsync(Id, EnumUtils.GetGERoute(GameSource));
             Update(updatedModel);
         }
 

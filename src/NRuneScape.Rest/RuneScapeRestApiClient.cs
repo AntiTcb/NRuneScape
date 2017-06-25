@@ -10,7 +10,7 @@ namespace NRuneScape.API
         public RuneScapeRestApiClient(IResponseDeserializer responseDeserializer)
             : base(responseDeserializer) { } 
 
-        internal override Task<BaseCharacter> GetCharacterAsync(string accountName, string route, string gameMode)
+        internal override Task<ICharacterModel> GetCharacterAsync(string accountName, string route, string gameMode)
         { 
             throw new NotSupportedException();
         }

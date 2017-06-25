@@ -29,7 +29,7 @@ namespace NRuneScape.API
         [JsonProperty("today")]
         public TradeMetaData Today { get; set; }
 
-        [JsonProperty("day30")]
+        [JsonProperty("day30", NullValueHandling = NullValueHandling.Include)]
         internal TradeMetaData Day30 { get; set; }    
         [JsonProperty("day90")]
         internal TradeMetaData Day90 { get; set; }    

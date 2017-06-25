@@ -28,7 +28,7 @@ namespace NRuneScape.API
             }
         }
 
-        protected override T DeserializeCharacter<T>(string content)
+        protected override T DeserializeCharacter<T>(string content, Uri requestUri)
         {
             throw new NotSupportedException();
         }

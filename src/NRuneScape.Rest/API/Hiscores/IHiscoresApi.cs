@@ -8,7 +8,12 @@ namespace NRuneScape.API
     /// </summary>
     internal interface IHiscoresApi : IRuneScapeApi
     {
-        [Get("m={route}{gameMode}/index_lite.ws")]
-        Task<Response<BaseCharacter>> GetCharacterAsync([Path]string route, [Path]string gameMode, [Query("player")]string accountName);
+        [Path("hsRoute")]
+        string HiscoresRoute { get; set; }
+        [Path("gameMode")]
+        string GameMode { get; set; }
+
+        [Get("m={hsRoute}{gameMode}/index_lite.ws")]
+        Task<Response<ICharacterModel>> GetCharacterAsync([Query("player")]string accountName);
     }
 }
