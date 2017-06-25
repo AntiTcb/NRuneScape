@@ -1,16 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard1.6</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RestEase" Version="1.4.0" />
-    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\NRuneScape.Core\NRuneScape.Core.csproj" />
+    <ProjectReference Include="..\NRuneScape.Rest\NRuneScape.Rest.csproj" />
   </ItemGroup>
 
 </Project>

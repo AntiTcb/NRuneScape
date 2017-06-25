@@ -1,6 +1,6 @@
 ﻿namespace NRuneScape.OldSchool.API
 {
-    internal interface IHiScore
+    internal interface IHiscoreModel
     {
         int Rank { get; set; }
     }

@@ -2,13 +2,13 @@
 
 namespace NRuneScape.OldSchool.API
 {
-    internal class SkillHiScore : IHiScore
+    internal class SkillHiScore : IHiscoreModel
     {
         public long Experience { get; set; }
         public int Level { get; set; }
         public int Rank { get; set; }
 
-        public static SkillHiScore ParseSkillData(string data)
+        public static SkillHiScore ParseData(string data)
         {
             var splitData = data.Split(',');
             if (splitData.Length != 3) throw new ArgumentException($"{nameof(data)} contained too few data points.");
@@ -21,11 +21,11 @@ namespace NRuneScape.OldSchool.API
             };
         }
 
-        public static bool TryParseSkillData(string data, out SkillHiScore hiScore)
+        public static bool TryParseData(string data, out SkillHiScore hiScore)
         {
             try
             {
-                hiScore = ParseSkillData(data);
+                hiScore = ParseData(data);
                 return true;
             }
             catch (ArgumentException)

@@ -2,28 +2,28 @@
 
 namespace NRuneScape.OldSchool.API
 {
-    internal sealed class ActivityHiScore : IHiScore
+    internal sealed class ActivityHiscore : IHiscoreModel
     {
         public int Rank { get; set; }
         public int Score { get; set; }
 
-        public static ActivityHiScore ParseActivityData(string data)
+        public static ActivityHiscore ParseData(string data)
         {
             var splitData = data.Split(',');
             if (splitData.Length != 2) throw new ArgumentException($"{nameof(data)} contained too few data points.");
 
-            return new ActivityHiScore
+            return new ActivityHiscore
             {
                 Rank = int.Parse(splitData[0]),
                 Score = int.Parse(splitData[1])
             };
         }
 
-        public static bool TryParseActivityData(string data, out ActivityHiScore hiScore)
+        public static bool TryParse(string data, out ActivityHiscore hiScore)
         {
             try
             {
-                hiScore = ParseActivityData(data);
+                hiScore = ParseData(data);
                 return true;
             }
             catch (ArgumentException)
