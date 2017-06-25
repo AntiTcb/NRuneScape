@@ -8,6 +8,7 @@ install:
 - dotnet restore
 
 script:
+- dotnet migrate
 - dotnet build
 - dotnet test tests/NRunescape.Rest.Tests.csproj
 - dotnet test tests/NRuneScape.OldSchool.Tests.csproj
