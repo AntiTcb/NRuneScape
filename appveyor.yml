@@ -11,4 +11,4 @@ build_script:
 - ps: dotnet build NRuneScape.sln
 
 test_script:
-- ps: dotnet test tests/NRuneScape.Rest.Tests/NRuneScape.Rest.Tests.csproj
+- ps: dotnet test tests/NRuneScape.OldSchool.Tests/NRuneScape.OldSchool.Tests.csproj
