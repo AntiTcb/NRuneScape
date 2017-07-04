@@ -7,15 +7,13 @@ using Xunit;
 
 namespace NRunescape.OldSchool.Tests
 {
-
-    public class Tests : IDisposable
+    public class Tests : IClassFixture<ClientFixture>
     {
-        internal readonly OldSchoolRestClient _client;
+        internal ClientFixture _fixture;
+        internal OldSchoolRestClient _client => _fixture.Client;
 
-        public Tests()
-        {
-            _client = new OldSchoolRestClient();
-        }
+        public Tests(ClientFixture fixture) =>
+            _fixture = fixture;
 
         [Fact]
         public async Task GetRegular_IsAntiTcb_ReturnsAccount()
@@ -57,7 +55,7 @@ namespace NRunescape.OldSchool.Tests
         public async Task GetSeasonal_IsAntiTcb_ReturnsNull()
         {
             var account = await _client.GetCharacterAsync("anti-tcb", GameMode.DeadmanSeasonal);
-            Assert.Null(account);
+            Assert.NotNull(account);
         }
 
         [Fact]

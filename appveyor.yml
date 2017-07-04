@@ -1,14 +1,24 @@
 version: beta-{build}
-pull_requests:
-  do_not_increment_build_number: true
 image: Visual Studio 2017
 clone_folder: C:\Projects\Discord.Net
 
 configuration: Release
 
+pull_requests:
+  do_not_increment_build_number: true
+
+nuget:
+  disable_publish_on_pr: true
+
+environment:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+init:
+- ps: $Env:BUILD = "$($Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0"))"
+
 build_script:
 - ps: appveyor-retry dotnet restore NRuneScape.sln
-- ps: dotnet build NRuneScape.sln
+- ps: dotnet build NRuneScape.sln -c "Release" /p:BuildNumber="$Env:BUILD" /p:IsTagBuild=$"Env:APPVEYOR_REPO_TAG"
 
 test_script:
-- ps: dotnet test tests/NRuneScape.OldSchool.Tests/NRuneScape.OldSchool.Tests.csproj
+- ps: dotnet test tests/NRuneScape.OldSchool.Tests/NRuneScape.OldSchool.Tests.csproj -c "Release" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
