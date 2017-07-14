@@ -20,11 +20,10 @@ namespace NRuneScape.OldSchool
         public OldSchoolRestClient()
             : this(new RuneScapeRestConfig(), 
                    new OldSchoolRestApiClient()) { }
-        
+
         internal OldSchoolRestClient(RuneScapeRestConfig config, RuneScapeRestApiClient client)
-            : base(config, client) {
-            ApiClient = client as OldSchoolRestApiClient;
-        }
+            : base(config, client) 
+            => ApiClient = client as OldSchoolRestApiClient;
 
         /// <summary>
         /// Gets the <see cref="OSHiscoreCharacter"/> with the given name and game mode, or null if not found.
@@ -32,10 +31,8 @@ namespace NRuneScape.OldSchool
         public Task<OSHiscoreCharacter> GetCharacterAsync(string accountName, GameMode gameMode = GameMode.Regular)
             => OSClientHelper.GetCharacterAsync(this, accountName, gameMode);
 
-        internal Task GetCharacterAsync(string v, object ultimateIronman)
-        {
-            throw new NotImplementedException();
-        }
+        internal Task GetCharacterAsync(string v, object ultimateIronman) 
+            => throw new NotImplementedException();
 
         /// <summary>
         /// Gets the <see cref="OSItem"/> with the provided item ID, or null if not found.

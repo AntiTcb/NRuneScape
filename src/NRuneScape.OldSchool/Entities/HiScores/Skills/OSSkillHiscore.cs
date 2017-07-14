@@ -16,16 +16,13 @@ namespace NRuneScape.OldSchool
         /// <summary> Gets the rank for this skill hiscore. Returns null if unranked. </summary>
         public int Rank { get; private set; }
 
-        internal static OSSkillHiscore Create(Model model, Skill name)
+        internal static OSSkillHiscore Create(Model model, Skill name) => new OSSkillHiscore
         {
-            return new OSSkillHiscore
-            {
-                Name = name.ToString(), 
-                Rank = model.Rank,
-                Level = model.Level,
-                Experience = model.Experience
-            };
-        }
+            Name = name.ToString(),
+            Rank = model.Rank,
+            Level = model.Level,
+            Experience = model.Experience
+        };
 
         public void Deconstruct(out string name,  out int? level, out int? rank, out long? experience)
         {

@@ -15,10 +15,10 @@ namespace NRuneScape.OldSchool.API
             var skillValues = Enum.GetValues(typeof(Skill));
             var activityValues = Enum.GetValues(typeof(Activity));
 
-            foreach (var skill in skillValues)
+            foreach (object skill in skillValues)
                 AddSkill((Skill)skill);
 
-            foreach (var activity in activityValues)
+            foreach (object activity in activityValues)
                 AddActivity((Activity)activity);
 
             Skills = skills;
@@ -26,15 +26,15 @@ namespace NRuneScape.OldSchool.API
 
 
             void AddSkill(Skill skill)
-            {   
-                var index = EnumUtils.GetInfo(skill).Index;
+            {
+                int index = EnumUtils.GetInfo(skill).Index;
                 var skillEntity = OSSkillHiscore.Create(hiScores[index] as SkillHiScore, skill);
                 skills.AddOrUpdate(skill, skillEntity, (x, y) => skillEntity);
             }
 
             void AddActivity(Activity activity)
-            {                                     
-                var index = EnumUtils.GetInfo(activity).Index;
+            {
+                int index = EnumUtils.GetInfo(activity).Index;
                 var activityEntity = OSActivityHiscore.Create(hiScores[index] as ActivityHiscore, activity);
                 activities.AddOrUpdate(activity, activityEntity, (x, y) => activityEntity);
             }

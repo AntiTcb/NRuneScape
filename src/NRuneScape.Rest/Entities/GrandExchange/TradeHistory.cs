@@ -10,15 +10,12 @@ namespace NRuneScape.Rest
         public string Price { get; internal set; }
         public string Change { get; internal set; }
 
-        internal static TradeHistory Create(Model model)
+        internal static TradeHistory Create(Model model) => new TradeHistory
         {
-            return new TradeHistory
-            {
-                Trend = model?.Trend ?? PriceTrend.Neutral,
-                Price = model?.Price,
-                Change = model?.Change
-            };
-        }
+            Trend = model?.Trend ?? PriceTrend.Neutral,
+            Price = model?.Price,
+            Change = model?.Change
+        };
 
         public override string ToString() => DebuggerDisplay;
         private string DebuggerDisplay => $"{Trend}: P:{Price} C:{Change}";

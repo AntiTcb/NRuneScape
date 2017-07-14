@@ -98,10 +98,8 @@ namespace NRuneScape.OldSchool
             Update(model);
         }
 
-        internal static OSHiscoreCharacter Create(OldSchoolRestClient client, CharacterModel model)
-        {
-            return new OSHiscoreCharacter(client, model);
-        }
+        internal static OSHiscoreCharacter Create(OldSchoolRestClient client, CharacterModel model) 
+            => new OSHiscoreCharacter(client, model);
 
         internal void Update(CharacterModel model)
         {
