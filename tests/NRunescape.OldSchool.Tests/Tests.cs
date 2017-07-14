@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using NRuneScape;
@@ -90,9 +89,15 @@ namespace NRunescape.OldSchool.Tests
             var item = await _client.GetItemAsync(1319);
         }
 
-        public void Dispose()
+        [Theory(DisplayName = "Item Stress Test")]
+        [InlineData(4151, true)]
+        [InlineData(9999999, false)]
+        public async Task GetItemTheory(int itemId, bool isValidInput)
         {
-            _client.Dispose();
+            var item = await _client.GetItemAsync(itemId);
+            Assert.Equal(isValidInput, item != null);
         }
+
+        internal void Dispose() => _client.Dispose();
     }
 }
