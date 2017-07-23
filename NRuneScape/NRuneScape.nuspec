@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NRuneScape</id>
+    <version>0.0.1$suffix$</version>
+    <title>NRuneScape</title>
+    <authors>Anti-Tcb</authors>
+    <owners>Anti-Tcb</owners>
+    <description>An asynchronous API wrapper for RuneScape. This metapackage includes all of the optional NRuneScape components.</description>
+    <tags>runescape</tags>
+    <projectUrl>https://github.com/AntiTcb/NRuneScape</projectUrl>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+        <group targetFramework="netstandard1.6">
+            <dependency id="NRuneScape.Core" version="0.0.1$suffix$" />
+            <dependency id="NRuneScape.Rest" version="0.0.1$suffix$" />
+            <dependency id="NRuneScape.OldSchool" version="0.0.1$suffix$" />
+            <dependency id="NRuneScape.RuneScape3" version="0.0.1$suffix$" />
+        </group>
+    </dependencies>
+  </metadata>
+</package>

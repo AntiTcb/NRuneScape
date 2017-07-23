@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRuneScape.Core", "src\NRuneScape.Core\NRuneScape.Core.csproj", "{317B8948-88AE-42EA-9965-CF70BAEB2C0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRuneScape.Core", "src\NRuneScape.Core\NRuneScape.Core.csproj", "{317B8948-88AE-42EA-9965-CF70BAEB2C0C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRuneScape.OldSchool", "src\NRuneScape.OldSchool\NRuneScape.OldSchool.csproj", "{05C47172-7F3D-4328-8682-E0FA0BE28599}"
 EndProject
@@ -17,13 +17,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
+		NRuneScape\NRuneScape.nuspec = NRuneScape\NRuneScape.nuspec
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRuneScape.Rest", "src\NRuneScape.Rest\NRuneScape.Rest.csproj", "{55D9171A-9123-467D-9A85-8A1FB915EC67}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRunescape.OldSchool.Tests", "tests\NRunescape.OldSchool.Tests\NRunescape.OldSchool.Tests.csproj", "{DECF3D8C-EBD7-450A-80C9-823DB643781D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRuneScape.RuneScape3.Tests", "tests\NRuneScape.RuneScape3.Tests\NRuneScape.RuneScape3.Tests.csproj", "{B5E28DE1-6EA5-4DF1-AB1F-F9725FF95688}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRuneScape.RuneScape3.Tests", "tests\NRuneScape.RuneScape3.Tests\NRuneScape.RuneScape3.Tests.csproj", "{B5E28DE1-6EA5-4DF1-AB1F-F9725FF95688}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
