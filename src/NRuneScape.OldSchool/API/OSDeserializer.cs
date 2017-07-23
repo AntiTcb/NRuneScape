@@ -17,8 +17,8 @@ namespace NRuneScape.OldSchool.API
         protected override T DeserializeCharacter<T>(string content, Uri requestUri)
         {
             string username = GetUsername(requestUri);
-            var returnAccount = new HiscoreCharacter(username, ParseGameModeUrl(requestUri), OSHiscoreParser.ParseHiScoreData(content));
-            return ChangeType<T>(returnAccount);
+            var model = new HiscoreCharacter(username, ParseGameModeUrl(requestUri), OSHiscoreData.Parse(content));
+            return ChangeType<T>(model);
 
 
             GameMode ParseGameModeUrl(Uri url)

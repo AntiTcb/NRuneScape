@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Diagnostics;
 
-namespace NRuneScape.OldSchool.API
+namespace NRuneScape.API
 {
-    internal class SkillHiScore : IHiscoreModel
+    [DebuggerDisplay("{DebuggerDisplay,nq}")]
+    internal class SkillHiscoreModel : IHiscoreModel
     {
         public long Experience { get; set; }
         public int Level { get; set; }
         public int Rank { get; set; }
 
-        public static SkillHiScore ParseData(string data)
+        public static SkillHiscoreModel ParseData(string data)
         {
             var splitData = data.Split(',');
             if (splitData.Length != 3) throw new ArgumentException($"{nameof(data)} contained too few data points.");
 
-            return new SkillHiScore
+            return new SkillHiscoreModel
             {
                 Rank = int.Parse(splitData[0]),
                 Level = int.Parse(splitData[1]),
@@ -21,7 +23,7 @@ namespace NRuneScape.OldSchool.API
             };
         }
 
-        public static bool TryParseData(string data, out SkillHiScore hiScore)
+        public static bool TryParseData(string data, out SkillHiscoreModel hiScore)
         {
             try
             {
@@ -34,5 +36,7 @@ namespace NRuneScape.OldSchool.API
                 return false;
             }
         }
+
+        private string DebuggerDisplay => $"L:{Level} | R:{Rank:N0} | E:{Experience:N0}";
     }
 }

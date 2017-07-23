@@ -4,19 +4,20 @@ using System.Threading.Tasks;
 using NRuneScape.API;
 using RestEase;
 
-namespace NRuneScape.OldSchool.API
+namespace NRuneScape.RuneScape3.API
 {
-    internal class OldSchoolRestApiClient : RuneScapeRestApiClient
+    internal class RS3RestApiClient : RuneScapeRestApiClient
     {
-        public new IOSRestApi API { get; }
+        public new IRS3RestApi API { get; }
 
-        public OldSchoolRestApiClient() 
+        public RS3RestApiClient()
         {
-            API = new RestClient(RuneScapeConfig.APIUrl) { ResponseDeserializer = new OSDserializer() }
-                .For<IOSRestApi>();
-            API.GERoute = EnumUtils.GetGERoute(Game.OldSchool);
-            API.HiscoresRoute = EnumUtils.GetHiscoreRoute(Game.OldSchool);
-        }   
+            API = new RestClient(RuneScapeConfig.APIUrl) { ResponseDeserializer = new RS3Deserializer() }
+                .For<IRS3RestApi>();
+            API.GERoute = EnumUtils.GetGERoute(Game.RuneScape3);
+            API.HiscoresRoute = EnumUtils.GetHiscoreRoute(Game.RuneScape3);
+            API.BestiaryRoute = "itemdb_rs/bestiary";
+        }
 
         internal async Task<HiscoreCharacter> GetCharacterAsync(string accountName, string gameMode)
         {

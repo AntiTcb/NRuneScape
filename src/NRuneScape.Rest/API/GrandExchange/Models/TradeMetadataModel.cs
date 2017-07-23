@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace NRuneScape.API
 {
     [DebuggerDisplay("{DebuggerDisplay, nq}")]
-    internal class TradeMetaData
+    internal class TradeMetadataModel
     {
         [JsonProperty("trend")]
         public PriceTrend Trend { get; set; }

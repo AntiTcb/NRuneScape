@@ -1,17 +1,17 @@
-﻿namespace NRuneScape
+﻿namespace NRuneScape.RuneScape3
 {
     public enum Skill
-    {    
+    {
         [Info(17)]
-        Agility,  
+        Agility,
         [Info(1)]
-        Attack,  
+        Attack,
         [Info(23)]
         Construction,
         [Info(8)]
         Cooking,
         [Info(13)]
-        Crafting, 
+        Crafting,
         [Info(2)]
         Defence,
         [Info(26)]
@@ -19,15 +19,17 @@
         [Info(25)]
         Dungeoneering,
         [Info(20)]
-        Farming,  
+        Farming,
         [Info(12)]
         Firemaking,
+        [Info(11)]
+        Fishing,
         [Info(10)]
         Fletching,
         [Info(16)]
-        Herblore, 
+        Herblore,
         [Info(4)]
-        Hitpoints,               
+        Hitpoints,
         [Info(22)]
         Hunter,
         [Info(27)]
@@ -36,8 +38,6 @@
         Magic,
         [Info(15)]
         Mining,
-        [Info(0)]
-        Overall,
         [Info(6)]
         Prayer,
         [Info(5)]
@@ -55,6 +55,8 @@
         [Info(18)]
         Thieving,
         [Info(9)]
-        Woodcutting
+        Woodcutting,
+        [Info(0)]
+        Overall
     }
 }

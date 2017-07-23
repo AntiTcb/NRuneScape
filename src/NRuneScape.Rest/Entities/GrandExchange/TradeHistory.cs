@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using Model = NRuneScape.API.TradeMetaData;
+using Model = NRuneScape.API.TradeMetadataModel;
 
 namespace NRuneScape.Rest
 {

@@ -9,7 +9,7 @@ namespace NRunescape.OldSchool.Tests
     public class Tests : IClassFixture<ClientFixture>
     {
         internal ClientFixture _fixture;
-        internal OldSchoolRestClient _client => _fixture.Client;
+        internal OSRestClient _client => _fixture.Client;
 
         public Tests(ClientFixture fixture) =>
             _fixture = fixture;

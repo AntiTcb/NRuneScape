@@ -14,6 +14,11 @@ namespace NRuneScape.API
         string GameMode { get; set; }
 
         [Get("m={hsRoute}{gameMode}/index_lite.ws")]
-        Task<Response<ICharacterModel>> GetCharacterAsync([Query("player")]string accountName);
+        Task<Response<IHiscoreCharacterModel>> GetCharacterAsync([Query("player")]string accountName);
+
+        [Get("m={hsRoute}{gameMode}/ranking.json")]
+        Task<Response<object>> GetTopRankedAsync([Query] int table,
+                                                 [Query] int category,
+                                                 [Query("size")] int limit);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace NRuneScape.OldSchool.API
+﻿namespace NRuneScape.API
 {
     internal interface IHiscoreModel
     {

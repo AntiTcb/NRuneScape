@@ -14,11 +14,11 @@
         ClueScrollsElite,
         [Info(32, "Clue Scrolls (Master)")]
         ClueScrollsMaster,
-        [Info(27, "Bounty Hunter - Rogue")]
-        BountyHunterHunter,
-        [Info(28, "Bounty Hunter - Hunter")]
+        [Info(27, "Bounty Hunter - Hunter")]
+        BountyHunter,
+        [Info(28, "Bounty Hunter - Rogue")]
         BountyHunterRogue,
         [Info(30, "LMS - Rank")]
-        LastManStandingRank
+        LastManStanding
     }
 }

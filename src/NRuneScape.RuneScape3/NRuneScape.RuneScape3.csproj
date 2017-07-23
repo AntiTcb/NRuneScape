@@ -6,13 +6,9 @@
 
   <ItemGroup>
     <Folder Include="API\GrandExchange\" />
-    <Folder Include="API\Bestiary\" />
-    <Folder Include="API\Hiscores\" />
     <Folder Include="API\WebsiteData\" />
     <Folder Include="API\RuneMetrics\" />
     <Folder Include="API\Solomons\" />
-    <Folder Include="API\Parsers\" />
-    <Folder Include="Entities\Hiscores\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
 

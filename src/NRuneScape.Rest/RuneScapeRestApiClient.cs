@@ -8,12 +8,10 @@ namespace NRuneScape.API
     {                               
         public RuneScapeRestApiClient() : base(new RestDeserializer()) { }   
         public RuneScapeRestApiClient(IResponseDeserializer responseDeserializer)
-            : base(responseDeserializer) { } 
+            : base(responseDeserializer) { }
 
-        internal override Task<ICharacterModel> GetCharacterAsync(string accountName, string route, string gameMode)
-        { 
-            throw new NotSupportedException();
-        }
+        internal override Task<IHiscoreCharacterModel> GetCharacterAsync(string accountName, string route, string gameMode) 
+            => throw new NotSupportedException();
     }
 }
                                                                                        

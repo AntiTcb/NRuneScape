@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Model = NRuneScape.API.Item;
+using Model = NRuneScape.API.ItemModel;
 
 namespace NRuneScape.Rest
 {
     [DebuggerDisplay("{DebuggerDisplay, nq}")]
-    public class RSItem : RestEntity<RuneScapeRestClient>, IItem
+    public class Item : RestEntity<RuneScapeRestClient>, IItem
     {
         public int Id { get; }
         public string Name { get; }                    
@@ -22,7 +22,7 @@ namespace NRuneScape.Rest
         public bool IsMembersItem { get; internal set; }
         public IReadOnlyDictionary<HistoryPeriod, TradeHistory> TradeHistories { get; internal set; }
         
-        internal RSItem(RuneScapeRestClient client, Game game, Model model) : base(client, game)
+        internal Item(RuneScapeRestClient client, Game game, Model model) : base(client, game)
         {
             Icon = model.Icon;
             LargeIcon = model.LargeIcon;
@@ -31,17 +31,7 @@ namespace NRuneScape.Rest
             CategoryIcon = model.CategoryIcon;
             Name = model.Name;
             Update(model);
-        }
-
-        protected RSItem(RSItem item) : base(item.RuneScape, item.GameSource)
-        {
-            Icon = item.Icon;
-            LargeIcon = item.LargeIcon;
-            Id = item.Id;
-            Category = item.Category;
-            CategoryIcon = item.CategoryIcon;
-            Name = item.Name;
-        }
+        }  
 
         public async Task UpdateAsync()
         {
@@ -49,10 +39,8 @@ namespace NRuneScape.Rest
             Update(updatedModel);
         }
 
-        internal static RSItem Create(RuneScapeRestClient client, Game game, Model model)
-        {
-            return new RSItem(client, game, model);
-        }
+        internal static Item Create(RuneScapeRestClient client, Game game, Model model) 
+            => new Item(client, game, model);
 
         internal void Update(Model model)
         {

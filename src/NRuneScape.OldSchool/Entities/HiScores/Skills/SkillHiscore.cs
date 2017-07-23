@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
-using Model = NRuneScape.OldSchool.API.SkillHiScore;
+using Model = NRuneScape.API.SkillHiscoreModel;
 
 namespace NRuneScape.OldSchool
 {
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
-    public class OSSkillHiscore : ISkillHiscore
+    public class SkillHiscore : ISkillHiscore
     {
         /// <summary> Gets the skill name for this hiscore. Returns null if unranked. </summary>
         public string Name { get; private set; }         
@@ -16,9 +16,9 @@ namespace NRuneScape.OldSchool
         /// <summary> Gets the rank for this skill hiscore. Returns null if unranked. </summary>
         public int Rank { get; private set; }
 
-        internal static OSSkillHiscore Create(Model model, Skill name) => new OSSkillHiscore
+        internal static SkillHiscore Create(Model model, Skill skill) => new SkillHiscore
         {
-            Name = name.ToString(),
+            Name = skill.ToString(),
             Rank = model.Rank,
             Level = model.Level,
             Experience = model.Experience
@@ -31,10 +31,13 @@ namespace NRuneScape.OldSchool
             rank = Rank;
             experience = Experience;
         }                                        
-
+        
+        private string DebuggerDisplay => $"({Name}) L:{Level} | R:{Rank:N0} | E:{Experience:N0}";
+        
         //IHiscore
         int? IHiscore.Rank => Rank;
-
-        private string DebuggerDisplay => $"({Name}) L:{Level} | R:{Rank:N0} | E:{Experience:N0}";
+        //ISkillHiscore
+        int? ISkillHiscore.Level => Level;
+        long? ISkillHiscore.Experience => Experience;
     }
 }

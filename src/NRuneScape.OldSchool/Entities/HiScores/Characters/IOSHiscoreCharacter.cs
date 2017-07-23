@@ -2,13 +2,13 @@
 {
     public interface IOSHiscoreCharacter : IHiscoreCharacter
     {
-        OSActivityHiscore BountyHunterHunter { get; }
-        OSActivityHiscore BountyHunterRogue { get; }
-        OSActivityHiscore ClueScrollsAll { get; }
-        OSActivityHiscore ClueScrollsEasy { get; }
-        OSActivityHiscore ClueScrollsMedium { get; }
-        OSActivityHiscore ClueScrollsHard { get; }
-        OSActivityHiscore ClueScrollsElite { get; }
-        OSActivityHiscore ClueScrollsMaster { get; }
+        ActivityHiscore BountyHunter { get; }
+        ActivityHiscore BountyHunterRogue { get; }
+        ActivityHiscore ClueScrollsAll { get; }
+        ActivityHiscore ClueScrollsEasy { get; }
+        ActivityHiscore ClueScrollsMedium { get; }
+        ActivityHiscore ClueScrollsHard { get; }
+        ActivityHiscore ClueScrollsElite { get; }
+        ActivityHiscore ClueScrollsMaster { get; }
     }
 }

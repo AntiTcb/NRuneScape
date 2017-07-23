@@ -10,9 +10,9 @@ namespace NRuneScape.API
         {
             switch (typeof(T))
             {   
-                case var i when i == typeof(Item):
+                case var i when i == typeof(ItemModel):
                     return DeserializeItem<T>(content);
-                case var iArray when iArray == typeof(Item[]):
+                case var iArray when iArray == typeof(ItemModel[]):
                     return DeserializeItems<T>(content);
 
                 default:

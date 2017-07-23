@@ -7,6 +7,8 @@ namespace NRuneScape
     /// </summary>
     public interface IHiscoreCharacter : ICharacter
     {
+        /// <summary> Gets the game mode this character was created in. </summary>
+        GameMode GameMode { get; }
         /// <summary> Returns a dictionary of the activity hiscores for this character. </summary>
         IReadOnlyDictionary<int, IActivityHiscore> Activities { get; }
         /// <summary> Returns a dictionary of the activity hiscores for this character. </summary>

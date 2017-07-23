@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace NRuneScape.API
 {
     [DebuggerDisplay("{DebuggerDisplay, nq}")]
-    internal sealed class Item
+    internal sealed class ItemModel
     {
         [JsonProperty("icon")]
         public Uri Icon { get; set; } 
@@ -25,19 +25,19 @@ namespace NRuneScape.API
         [JsonProperty("members")]
         public bool IsMembersItem { get; set; }
         [JsonProperty("current")]
-        public TradeMetaData Current { get; set; }
+        public TradeMetadataModel Current { get; set; }
         [JsonProperty("today")]
-        public TradeMetaData Today { get; set; }
+        public TradeMetadataModel Today { get; set; }
 
         [JsonProperty("day30", NullValueHandling = NullValueHandling.Include)]
-        internal TradeMetaData Day30 { get; set; }    
+        internal TradeMetadataModel Day30 { get; set; }    
         [JsonProperty("day90")]
-        internal TradeMetaData Day90 { get; set; }    
+        internal TradeMetadataModel Day90 { get; set; }    
         [JsonProperty("day180")]
-        internal TradeMetaData Day180 { get; set; } 
+        internal TradeMetadataModel Day180 { get; set; } 
 
-        public Dictionary<HistoryPeriod, TradeMetaData> TradeHistories
-            => new Dictionary<HistoryPeriod, TradeMetaData>
+        public Dictionary<HistoryPeriod, TradeMetadataModel> TradeHistories
+            => new Dictionary<HistoryPeriod, TradeMetadataModel>
                 {
                     { HistoryPeriod.Days30, Day30 },
                     { HistoryPeriod.Days90, Day90 },

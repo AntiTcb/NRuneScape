@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net; 
 using System.Threading.Tasks;
+using NRuneScape.Rest;
 using RestEase;
 
 namespace NRuneScape.API
@@ -11,7 +12,7 @@ namespace NRuneScape.API
         public IRuneScapeRestApi API { get; }
         protected bool _isDisposed;
 
-        internal abstract Task<ICharacterModel> GetCharacterAsync(string accountName, string route, string gameMode);
+        internal abstract Task<IHiscoreCharacterModel> GetCharacterAsync(string accountName, string route, string gameMode);
 
         public BaseRestApiClient() : this(new RestDeserializer()) { }
         public BaseRestApiClient(IResponseDeserializer responseDeserializer)
@@ -21,12 +22,12 @@ namespace NRuneScape.API
             API.UserAgent = RuneScapeConfig.UserAgent;
         }
 
-        internal async Task<Item> GetItemAsync(int itemId, string route)
+        internal async Task<ItemModel> GetItemAsync(int itemId, string route)
         {
             try
             {
                 API.GERoute = route;
-                var resp = await API.GetItemByIdAsync(itemId);
+                var resp = await API.GetItemAsync(itemId);
                 return resp.GetContent();
             }
             catch (ApiException e) when (e.StatusCode == HttpStatusCode.NotFound)
@@ -35,10 +36,10 @@ namespace NRuneScape.API
             }
         }
 
-        internal async Task<IReadOnlyCollection<Item>> GetItemsAsync(string itemName, string route, GetItemParams args)
+        internal async Task<IReadOnlyCollection<ItemModel>> GetItemsAsync(string itemName, string route, GetItemParams args, int categoryId)
         {
             API.GERoute = route;
-            var resp = await API.GetItemByNameAsync(itemName, args.AfterPageNum ?? 1);
+            var resp = await API.GetItemsAsync(itemName, args.AfterPageNum ?? 1, categoryId);
             return resp.GetContent();
         }
 

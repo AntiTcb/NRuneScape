@@ -4,9 +4,6 @@ using RestEase;
 
 namespace NRuneScape.OldSchool.API
 {
-    /// <summary>
-    /// The interface providing REST endpoints for the Hiscores for Old School RuneScape.
-    /// </summary>
     internal interface IOSHiscoresApi : IHiscoresApi
     {
         [Get("m={hsRoute}{gameMode}/index_lite.ws")]

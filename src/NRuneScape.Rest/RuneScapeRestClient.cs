@@ -16,10 +16,10 @@ namespace NRuneScape.Rest
         internal RuneScapeRestClient(RuneScapeRestConfig config, RuneScapeRestApiClient client)
             : base(config, client) { }           
 
-        public async Task<RSItem> GetItemAsync(int itemId, Game game)
+        public async Task<Item> GetItemAsync(int itemId, Game game)
             => await ClientHelper.GetItemAsync(this, itemId, game);
 
-        public IAsyncEnumerable<RSItem> GetItemsAsync(string itemName, Game game, int? limit = null)
+        public IAsyncEnumerable<Item> GetItemsAsync(string itemName, Game game, int? limit = null)
             => ClientHelper.GetItemsAsync(this, itemName, game, limit);
 
         internal override Task<IHiscoreCharacter> GetCharacterAsync(string accountName, Game game, GameMode mode) 
