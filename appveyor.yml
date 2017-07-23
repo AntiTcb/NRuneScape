@@ -19,6 +19,10 @@ init:
 build_script:
 - ps: appveyor-retry dotnet restore NRuneScape.sln
 - ps: dotnet build NRuneScape.sln -c "Release" /p:BuildNumber="$Env:BUILD" /p:IsTagBuild=$"Env:APPVEYOR_REPO_TAG"
+- ps: dotnet pack "src/NRuneScape.Core/NRuneScape.Core.csproj" -c "Release" -o "../../artifacts" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
+- ps: dotnet pack "src/NRuneScape.Rest/NRuneScape.Rest.csproj" -c "Release" -o "../../artifacts" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
+- ps: dotnet pack "src/NRuneScape.OldSchool/NRuneScape.OldSchool.csproj" -c "Release" -o "../../artifacts" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
+- ps: dotnet pack "src/NRuneScape.RuneScape3/NRuneScape.RuneScape3.csproj" -c "Release" -o "../../artifacts" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
 
 test_script:
 - ps: dotnet test tests/NRuneScape.OldSchool.Tests/NRuneScape.OldSchool.Tests.csproj -c "Release" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
