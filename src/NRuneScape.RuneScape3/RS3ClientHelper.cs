@@ -39,7 +39,7 @@ namespace NRuneScape.RuneScape3
             var entity = new Item(client, Game.RuneScape3, model);
             return entity;
         }
-        public static IAsyncEnumerable<Item> GetItemsAsync(RS3RestClient client, string name, int? limit)
+        public static IAsyncEnumerable<Item> GetItemsAsync(RS3RestClient client, string name, int categoryId, int? limit)
         {
             if (name == null)
                 throw new ArgumentNullException(nameof(name));
@@ -57,7 +57,7 @@ namespace NRuneScape.RuneScape3
                     };
                     if (info.Position != null)
                         args.AfterPageNum = info.Page + 1;
-                    var models = await client.ApiClient.GetItemsAsync(name, client.ApiClient.API.GERoute, args);
+                    var models = await client.ApiClient.GetItemsAsync(name, client.ApiClient.API.GERoute, categoryId, args);
                     return models
                         .Select(model => new Item(client, Game.RuneScape3, model))
                         .ToReadOnlyCollection(() => models.Count);

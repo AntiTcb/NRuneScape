@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using NRuneScape.API;
+using NRuneScape.Rest;
 using RestEase;
 
 namespace NRuneScape.OldSchool.API
@@ -35,7 +36,7 @@ namespace NRuneScape.OldSchool.API
         internal Task<ItemModel> GetItemAsync(int itemId)
             => GetItemAsync(itemId, API.GERoute);
         internal Task<IReadOnlyCollection<ItemModel>> GetItemsAsync(string itemName, GetItemParams args)
-            => GetItemsAsync(itemName, API.GERoute, args);
+            => GetItemsAsync(itemName, API.GERoute, (int)GECategory.Ammo, args: args);
         internal async override Task<IHiscoreCharacterModel> GetCharacterAsync(string accountName, string hsRoute, string gameMode)
             => await GetCharacterAsync(accountName, gameMode);
     }

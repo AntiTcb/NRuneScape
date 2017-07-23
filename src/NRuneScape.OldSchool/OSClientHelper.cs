@@ -48,7 +48,7 @@ namespace NRuneScape.OldSchool
                     };
                     if (info.Position != null)
                         args.AfterPageNum = info.Page + 1;
-                    var models = await client.ApiClient.GetItemsAsync(name, client.ApiClient.API.GERoute, args);
+                    var models = await client.ApiClient.GetItemsAsync(name, args: args);
                     return models
                         .Select(model => new Item(client, Game.OldSchool, model))
                         .ToReadOnlyCollection(() => models.Count);

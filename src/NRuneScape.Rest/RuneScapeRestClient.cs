@@ -19,8 +19,8 @@ namespace NRuneScape.Rest
         public async Task<Item> GetItemAsync(int itemId, Game game)
             => await ClientHelper.GetItemAsync(this, itemId, game);
 
-        public IAsyncEnumerable<Item> GetItemsAsync(string itemName, Game game, int? limit = null)
-            => ClientHelper.GetItemsAsync(this, itemName, game, limit);
+        public IAsyncEnumerable<Item> GetItemsAsync(string itemName, Game game, GECategory category, int? limit = null)
+            => ClientHelper.GetItemsAsync(this, itemName, game, category, limit: limit);
 
         internal override Task<IHiscoreCharacter> GetCharacterAsync(string accountName, Game game, GameMode mode) 
             => throw new NotSupportedException();

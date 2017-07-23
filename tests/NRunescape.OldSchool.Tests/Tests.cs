@@ -14,57 +14,57 @@ namespace NRunescape.OldSchool.Tests
         public Tests(ClientFixture fixture) =>
             _fixture = fixture;
 
-        [Fact]
+        [Fact(DisplayName = "AntiT-cb Regular")]
         public async Task GetRegular_IsAntiTcb_ReturnsAccount()
         {
             var account = await _client.GetCharacterAsync("anti-tcb");
             Assert.True(account.Name == "Anti-tcb");
-            Assert.True(account.Agility.Level == 73);
+            Assert.True(account.Agility.Level == 75);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Anti-Tcb Ironman")]
         public async Task GetIronman_IsAntiTcbAndNoIronmanCharacterExists_ReturnsNull()
         {
             var account = await _client.GetCharacterAsync("anti-tcb", GameMode.Ironman);
             Assert.Null(account);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Anti-Tcb Hardcore")]
         public async Task GetHardcoreIronMan_IsAntiTcbAndDoesNotExist_ReturnsNull()
         {
             var account = await _client.GetCharacterAsync("anti-tcb", GameMode.HardcoreIronman);
             Assert.Null(account);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Anti-Tcb Ultimate")]
         public async Task GetUltimateIronman_IsAntiTcbAndDoesNotExist_ReturnsNull()
         {
             var account = await _client.GetCharacterAsync("anti-tcb", GameMode.UltimateIronman);
             Assert.Null(account);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Anti-Tcb Deadman")]
         public async Task GetDeadman_IsAntiTcb_ReturnsAccount()
         {
             var account = await _client.GetCharacterAsync("anti-tcb", GameMode.Deadman);
             Assert.True(account.Overall.Level == 114);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Anti-Tcb Seasonal") ]
         public async Task GetSeasonal_IsAntiTcb_ReturnsNull()
         {
             var account = await _client.GetCharacterAsync("anti-tcb", GameMode.DeadmanSeasonal);
             Assert.NotNull(account);
         }
 
-        [Fact]
+        [Fact(DisplayName = "AntiTcb Regular Slayer")]
         public async Task GetRegularSlayer_IsAntiTcb_Returns63()
         {
             var account = await _client.GetCharacterAsync("antitcb", GameMode.Regular);
             Assert.True(account.Slayer.Level == 63);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Anti-Tcb Master Clues")]
         public async Task GetRegularMasterClues_IsAntiTcb_ReturnsNull()
         {
             var account = await _client.GetCharacterAsync("anti-tcb", GameMode.Regular);
@@ -72,7 +72,7 @@ namespace NRunescape.OldSchool.Tests
             Assert.Null(account.ClueScrollsMaster.Rank);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Abyssal Whip")]
         public async Task GetAbyssalWhip_ReturnsAbyssalWhip()
         {
             var item = await _client.GetItemAsync(4151);
@@ -81,7 +81,7 @@ namespace NRunescape.OldSchool.Tests
             Assert.True(item.Description == "A weapon from the abyss.");
         }
 
-        [Fact]
+        [Fact(DisplayName = "Rune items")]
         public async Task GetRuneItems_ReturnsCollectionOfItemsBeginningWithRune()
         {
             var items = _client.GetItemsAsync("rune", 60);

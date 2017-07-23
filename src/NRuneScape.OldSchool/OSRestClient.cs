@@ -38,7 +38,7 @@ namespace NRuneScape.OldSchool
         /// Returns an asynchronous collection of <see cref="OSItem"/> whose names start with the provided string.
         /// </summary>
         public IAsyncEnumerable<Item> GetItemsAsync(string name, int? limit = null)
-            => ClientHelper.GetItemsAsync(this, name, Game.OldSchool, limit);
+            => ClientHelper.GetItemsAsync(this, name, Game.OldSchool, GECategory.Ammo, limit);
         
     }
 }

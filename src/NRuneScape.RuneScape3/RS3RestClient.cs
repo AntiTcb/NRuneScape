@@ -37,8 +37,8 @@ namespace NRuneScape.RuneScape3
         /// <summary>
         /// Returns an asynchronous collection of <see cref="RS3Item"/> whose names start with the provided string.
         /// </summary>
-        public IAsyncEnumerable<Item> GetItemsAsync(string name, int? limit = null)
-            => ClientHelper.GetItemsAsync(this, name, Game.RuneScape3, limit);
+        public IAsyncEnumerable<Item> GetItemsAsync(string name, GECategory category, int? limit = null)
+            => ClientHelper.GetItemsAsync(this, name, Game.RuneScape3, category, limit);
 
     }
 }

@@ -36,7 +36,7 @@ namespace NRuneScape.API
             }
         }
 
-        internal async Task<IReadOnlyCollection<ItemModel>> GetItemsAsync(string itemName, string route, GetItemParams args, int categoryId)
+        internal async Task<IReadOnlyCollection<ItemModel>> GetItemsAsync(string itemName, string route, int categoryId, GetItemParams args)
         {
             API.GERoute = route;
             var resp = await API.GetItemsAsync(itemName, args.AfterPageNum ?? 1, categoryId);

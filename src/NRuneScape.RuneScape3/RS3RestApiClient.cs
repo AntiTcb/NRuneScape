@@ -35,8 +35,8 @@ namespace NRuneScape.RuneScape3.API
 
         internal Task<ItemModel> GetItemAsync(int itemId)
             => GetItemAsync(itemId, API.GERoute);
-        internal Task<IReadOnlyCollection<ItemModel>> GetItemsAsync(string itemName, GetItemParams args)
-            => GetItemsAsync(itemName, API.GERoute, args);
+        internal Task<IReadOnlyCollection<ItemModel>> GetItemsAsync(string itemName, GetItemParams args, int categoryId)
+            => GetItemsAsync(itemName, API.GERoute, categoryId, args);
         internal async override Task<IHiscoreCharacterModel> GetCharacterAsync(string accountName, string hsRoute, string gameMode)
             => await GetCharacterAsync(accountName, gameMode);
     }

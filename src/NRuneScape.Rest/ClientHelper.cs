@@ -20,9 +20,8 @@ namespace NRuneScape
             var entity = new Item(client, game, model);
             return entity;
         }
-
-        // Defaults to ammo as all Old School items are in category 1.
-        public static IAsyncEnumerable<Item> GetItemsAsync(RuneScapeRestClient client, string name, Game game, int? limit, GECategory category = GECategory.Ammo)
+                                                                       
+        public static IAsyncEnumerable<Item> GetItemsAsync(RuneScapeRestClient client, string name, Game game, GECategory category, int? limit)
         {
             if (name == null)
                 throw new ArgumentNullException(nameof(name));                                                                                                   
@@ -43,7 +42,7 @@ namespace NRuneScape
                     };
                     if (info.Position != null)
                         args.AfterPageNum = info.Page + 1;
-                    var models = await client.ApiClient.GetItemsAsync(name, route, args, (int)category);
+                    var models = await client.ApiClient.GetItemsAsync(name, route, (int)category, args);
                     return models
                         .Select(model => new Item(client, game, model))
                         .ToImmutableArray();
