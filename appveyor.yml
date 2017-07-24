@@ -36,3 +36,16 @@ after_build:
 test_script:
 - ps: dotnet test tests\NRuneScape.RuneScape3.Tests\NRuneScape.RuneScape3.Tests.csproj -c "Release" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
 - ps: dotnet test tests\NRuneScape.OldSchool.Tests\NRuneScape.OldSchool.Tests.csproj -c "Release" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
+
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/antitcb/api/v2/package
+  api_key:
+    secure: AWRvUZbGz2G1+FkFE5v/gFjVyKpOW/eldssR+dfg7Yhy6HhCQoAzpFvzyvI/93c1
+  symbol_server: https://www.myget.org/F/antitcb/symbols/api/v2/package
+
+- provider: NuGet
+  server: https://www.myget.org/F/nrunescape/api/v2/package
+  api_key:
+    secure: HucCoVE1q+w763JvZXj/czwe5QVkPyslqQ7VFofc20u8uMOCzkRkpsE6WcE2TJlo
+  symbol_server: https://www.myget.org/F/nrunescape/symbols/api/v2/package

@@ -27,6 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRunescape.OldSchool.Tests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRuneScape.RuneScape3.Tests", "tests\NRuneScape.RuneScape3.Tests\NRuneScape.RuneScape3.Tests.csproj", "{B5E28DE1-6EA5-4DF1-AB1F-F9725FF95688}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{D2B1EF13-AF40-4FB2-94E7-B43FD28144D8}"
+	ProjectSection(SolutionItems) = preProject
+		.github\README.md = .github\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +71,6 @@ Global
 		{57236183-4823-44A7-9C60-D0F7AF9B8CFA} = {6C871B35-51F4-488D-9748-B111FB84AE75}
 		{DECF3D8C-EBD7-450A-80C9-823DB643781D} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
 		{B5E28DE1-6EA5-4DF1-AB1F-F9725FF95688} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
+		{D2B1EF13-AF40-4FB2-94E7-B43FD28144D8} = {608C1796-3A37-4DE0-950F-C337A0250875}
 	EndGlobalSection
 EndGlobal
