@@ -63,7 +63,7 @@ deploy:
 notifications:
 - provider: Webhook
   url: 
-    secure: 57BGR6qgxNvqyo4szSetG8DX0JtWn6Whx+lib2TCYQF1p2oiO/dzz41Yls7Pts7waZ5d5UwpekMLFXpugn45G+4G8wLbDYKzNihVLJu6hCsABPMKCcoNLjHsGSGL5TI7Mbb8arOcCei4FFSLQfPJE98v8pw6/4AhbbuRxlMS1jk=
+    secure: ZGzRq74gcYmwNyHdlVifEZ43Dhb2aQQjrpNUvZ7OpFu+ETxGY1WsultLPgKPWy+7WMMajoPtn00GEy1N10Fvu6z2ksd4P3NEFLV+/P0sirgXPdp9tVobInEYmrFiiltMFPbtOt5LEuCiHfq5j1etu+K4+Mw/B1voq6AvDBOsHqdZHetLc7S7elV7CzwYzyUO
   method: POST
   on_build_success: true
   on_build_failure: true
