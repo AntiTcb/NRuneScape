@@ -4,10 +4,20 @@ clone_folder: C:\Projects\Discord.Net
 
 configuration: Release
 
+branches:
+  only:
+    - dev
+
+skip_commits:
+  files:
+    - docs/*
+    - '**/*.html'
+
 pull_requests:
   do_not_increment_build_number: true
 
 nuget:
+  project_feed: true
   disable_publish_on_pr: true
 
 environment:
