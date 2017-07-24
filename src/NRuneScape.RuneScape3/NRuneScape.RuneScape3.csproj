@@ -1,8 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
-  </PropertyGroup>
+    <Import Project="../../NRuneScape.targets" />
+    <PropertyGroup>
+        <AssemblyName>NRuneScape.RuneScape3</AssemblyName>
+        <RootNamespace>NRuneScape.RuneScape3</RootNamespace>
+        <Description>A core NRuneScape library containing the RuneScape 3 REST client and models.</Description>
+        <TargetFrameworks>netstandard1.6</TargetFrameworks>
+    </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="API\GrandExchange\" />

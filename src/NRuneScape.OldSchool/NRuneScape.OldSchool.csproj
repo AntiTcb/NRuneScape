@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\NRuneScape.Core\NRuneScape.Core.csproj" />
-    <ProjectReference Include="..\NRuneScape.Rest\NRuneScape.Rest.csproj" />
-  </ItemGroup>
-
+    <Import Project="../../NRuneScape.targets" />
+    <PropertyGroup>
+        <AssemblyName>NRuneScape.OldSchool</AssemblyName>
+        <RootNamespace>NRuneScape.OldSchool</RootNamespace>
+        <Description>A core NRuneScape library containing the Old School REST client and models.</Description>
+        <TargetFrameworks>netstandard1.6</TargetFrameworks>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\NRuneScape.Core\NRuneScape.Core.csproj" />
+        <ProjectReference Include="..\NRuneScape.Rest\NRuneScape.Rest.csproj" />
+    </ItemGroup>
 </Project>

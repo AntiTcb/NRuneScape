@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
-    <RootNamespace>NRuneScape.Rest</RootNamespace>
-    <AssemblyName>NRuneScape.Rest</AssemblyName>
-  </PropertyGroup>
-
+    <Import Project="../../NRuneScape.targets" />
+    <PropertyGroup>
+        <AssemblyName>NRuneScape.Rest</AssemblyName>
+        <RootNamespace>NRuneScape.Rest</RootNamespace>
+        <Description>A core NRuneScape library containing the game agnostic REST client and models.</Description>
+        <TargetFrameworks>netstandard1.6</TargetFrameworks>
+    </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
     <PackageReference Include="RestEase" Version="1.4.0" />
