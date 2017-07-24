@@ -27,11 +27,12 @@ after_build:
 - ps: dotnet pack "src/NRuneScape.RuneScape3/NRuneScape.RuneScape3.csproj" -c "Release" -o "../../artifacts" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
 - ps: >-
     if ($Env:APPVEYOR_REPO_TAG -eq "true") {
-      nuget pack NRunescape\NRuneScape.nuspec -OutputDirectory "artifacts" -properties suffix=""
+      nuget pack NRuneScape.nuspec -OutputDirectory "artifacts" -properties suffix=""
     } else {
-      nuget pack NRuneScape\NRuneScape.nuspec -OutputDirectory "artifacts" -properties suffix="-build-$Env:BUILD"
+      nuget pack NRuneScape.nuspec -OutputDirectory "artifacts" -properties suffix="-build-$Env:BUILD"
     }
 - ps: Get-ChildItem artifacts\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 
 test_script:
+- ps: dotnet test tests/NRuneScape.RuneScape3.Tests/NRuneScape.RuneScape3.Tests.csproj -c "Release" --nobuild /:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
 - ps: dotnet test tests/NRuneScape.OldSchool.Tests/NRuneScape.OldSchool.Tests.csproj -c "Release" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
