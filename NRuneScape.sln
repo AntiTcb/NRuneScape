@@ -16,9 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{608C1796-3A37-4DE0-950F-C337A0250875}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		appveyor.yml = appveyor.yml
-		NRuneScape\NRuneScape.nuspec = NRuneScape\NRuneScape.nuspec
-		NRuneScape\NRuneScape.targets = NRuneScape\NRuneScape.targets
+		LICENSE.txt = LICENSE.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRuneScape.Rest", "src\NRuneScape.Rest\NRuneScape.Rest.csproj", "{55D9171A-9123-467D-9A85-8A1FB915EC67}"
@@ -27,9 +25,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRunescape.OldSchool.Tests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRuneScape.RuneScape3.Tests", "tests\NRuneScape.RuneScape3.Tests\NRuneScape.RuneScape3.Tests.csproj", "{B5E28DE1-6EA5-4DF1-AB1F-F9725FF95688}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{D2B1EF13-AF40-4FB2-94E7-B43FD28144D8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{D2B1EF13-AF40-4FB2-94E7-B43FD28144D8}"
 	ProjectSection(SolutionItems) = preProject
+		ISSUE_TEMPLATE.md = ISSUE_TEMPLATE.md
+		PULL_REQUEST_TEMPLATE.md = PULL_REQUEST_TEMPLATE.md
 		.github\README.md = .github\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", "{CE83ECBC-8B50-4DBF-A013-9C4953C0312C}"
+	ProjectSection(SolutionItems) = preProject
+		src\NRuneScape\NRuneScape.nuspec = src\NRuneScape\NRuneScape.nuspec
+		NRuneScape.targets = NRuneScape.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CI", "CI", "{E00CE0D1-7241-4C78-9FC1-F930A83CF506}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 	EndProjectSection
 EndProject
 Global
@@ -72,5 +83,7 @@ Global
 		{DECF3D8C-EBD7-450A-80C9-823DB643781D} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
 		{B5E28DE1-6EA5-4DF1-AB1F-F9725FF95688} = {1F2194F2-3700-4AA0-80F7-A1FE35C4B56E}
 		{D2B1EF13-AF40-4FB2-94E7-B43FD28144D8} = {608C1796-3A37-4DE0-950F-C337A0250875}
+		{CE83ECBC-8B50-4DBF-A013-9C4953C0312C} = {608C1796-3A37-4DE0-950F-C337A0250875}
+		{E00CE0D1-7241-4C78-9FC1-F930A83CF506} = {608C1796-3A37-4DE0-950F-C337A0250875}
 	EndGlobalSection
 EndGlobal

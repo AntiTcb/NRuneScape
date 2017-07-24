@@ -29,13 +29,13 @@ namespace NRuneScape.OldSchool
             => OSClientHelper.GetCharacterAsync(this, accountName, gameMode);
                                                     
         /// <summary>
-        /// Gets the <see cref="OSItem"/> with the provided item ID, or null if not found.
+        /// Gets the <see cref="Item"/> with the provided item ID, or null if not found.
         /// </summary>                                               
         public Task<Item> GetItemAsync(int itemId)
             => ClientHelper.GetItemAsync(this, itemId, Game.OldSchool);
         
         /// <summary>
-        /// Returns an asynchronous collection of <see cref="OSItem"/> whose names start with the provided string.
+        /// Returns an asynchronous collection of <see cref="Item"/> whose names start with the provided string.
         /// </summary>
         public IAsyncEnumerable<Item> GetItemsAsync(string name, int? limit = null)
             => ClientHelper.GetItemsAsync(this, name, Game.OldSchool, GECategory.Ammo, limit);

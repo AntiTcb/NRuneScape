@@ -1,4 +1,4 @@
-version: beta-{build}
+version: build-{build}
 image: Visual Studio 2017
 clone_folder: C:\Projects\Discord.Net
 
@@ -49,3 +49,12 @@ deploy:
   api_key:
     secure: HucCoVE1q+w763JvZXj/czwe5QVkPyslqQ7VFofc20u8uMOCzkRkpsE6WcE2TJlo
   symbol_server: https://www.myget.org/F/nrunescape/symbols/api/v2/package
+
+notifications:
+- provider: Webhook
+  url: 
+    secure: 57BGR6qgxNvqyo4szSetG8DX0JtWn6Whx+lib2TCYQF1p2oiO/dzz41Yls7Pts7waZ5d5UwpekMLFXpugn45G+4G8wLbDYKzNihVLJu6hCsABPMKCcoNLjHsGSGL5TI7Mbb8arOcCei4FFSLQfPJE98v8pw6/4AhbbuRxlMS1jk=
+  method: POST
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true

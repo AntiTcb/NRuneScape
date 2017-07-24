@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using NRuneScape;
 using NRuneScape.API;
 using NRuneScape.Rest;
 using NRuneScape.RuneScape3.API;
@@ -23,7 +22,7 @@ namespace NRuneScape.RuneScape3
             => ApiClient = client as RS3RestApiClient;
 
         /// <summary>
-        /// Gets the <see cref="API.HiscoreCharacter"/> with the given name and game mode, or null if not found.
+        /// Gets the <see cref="HiscoreCharacter"/> with the given name and game mode, or null if not found.
         /// </summary>                                                                                                         
         public Task<RS3HiscoreCharacter> GetCharacterAsync(string accountName, GameMode gameMode = GameMode.Regular)
             => RS3ClientHelper.GetCharacterAsync(this, accountName, gameMode);
@@ -35,7 +34,7 @@ namespace NRuneScape.RuneScape3
             => ClientHelper.GetItemAsync(this, itemId, Game.RuneScape3);
 
         /// <summary>
-        /// Returns an asynchronous collection of <see cref="RS3Item"/> whose names start with the provided string.
+        /// Returns an asynchronous collection of <see cref="Item"/> whose names start with the provided string.
         /// </summary>
         public IAsyncEnumerable<Item> GetItemsAsync(string name, GECategory category, int? limit = null)
             => ClientHelper.GetItemsAsync(this, name, Game.RuneScape3, category, limit);
