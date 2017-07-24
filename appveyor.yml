@@ -34,5 +34,5 @@ after_build:
 - ps: Get-ChildItem artifacts\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 
 test_script:
-- ps: dotnet test tests\NRuneScape.RuneScape3.Tests\NRuneScape.RuneScape3.Tests.csproj -c "Release" --no-build /:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
+- ps: dotnet test tests\NRuneScape.RuneScape3.Tests\NRuneScape.RuneScape3.Tests.csproj -c "Release" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
 - ps: dotnet test tests\NRuneScape.OldSchool.Tests\NRuneScape.OldSchool.Tests.csproj -c "Release" --no-build /p:BuildNumber="$Env:BUILD" /p:IsTagBuild="$Env:APPVEYOR_REPO_TAG"
