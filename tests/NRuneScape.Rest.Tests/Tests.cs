@@ -61,8 +61,8 @@ namespace NRuneScape.Rest.Tests
             var osTime = await _client.GetUpdateTimeAsync(Game.OldSchool);
             var rs3Time = await _client.GetUpdateTimeAsync(Game.RuneScape3);
 
-            Assert.True(osTime.Value.Days == RuneDate.Now.Value.Days);
-            Assert.True(rs3Time.Value.Days == RuneDate.Now.Value.Days);
+            Assert.True(osTime.Value.Days <= RuneDate.Now.Value.Days);
+            Assert.True(rs3Time.Value.Days <= RuneDate.Now.Value.Days);
         }
 
         internal void Dispose() => _client.Dispose();
