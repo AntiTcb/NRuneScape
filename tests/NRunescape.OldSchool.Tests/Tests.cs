@@ -14,7 +14,7 @@ namespace NRunescape.OldSchool.Tests
         public Tests(ClientFixture fixture) =>
             _fixture = fixture;
 
-        [Fact(DisplayName = "AntiT-cb Regular")]
+        [Fact(DisplayName = "Anti-Tcb Regular")]
         public async Task GetRegular_IsAntiTcb_ReturnsAccount()
         {
             var account = await _client.GetCharacterAsync("anti-tcb");

@@ -4,8 +4,8 @@
     <id>NRuneScape</id>
     <version>0.0.1$suffix$</version>
     <title>NRuneScape</title>
-    <authors>Anti-Tcb</authors>
-    <owners>Anti-Tcb</owners>
+    <authors>AntiTcb</authors>
+    <owners>AntiTcb</owners>
     <description>An asynchronous API wrapper for RuneScape. This metapackage includes all of the optional NRuneScape components.</description>
     <tags>runescape</tags>
     <projectUrl>https://github.com/AntiTcb/NRuneScape</projectUrl>

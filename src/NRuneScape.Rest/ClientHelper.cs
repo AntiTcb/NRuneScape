@@ -57,5 +57,15 @@ namespace NRuneScape
                 count: limit
                 );
         }
+
+        public static async Task<RuneDate> GetUpdateTimeAsync(RuneScapeRestClient client, Game game)
+        {
+            var model = await client.ApiClient.GetUpdateTimeAsync(EnumUtils.GetGERoute(game));
+            if (model == null)
+                return RuneDate.Now;
+
+            var entity = new RuneDate(model);
+            return entity;
+        }
     }
 }

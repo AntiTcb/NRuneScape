@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace NRuneScape.RuneScape3.API
 {
-    internal class BeastData
+    internal class BeastDataModel
     {
         [JsonProperty("level")]
         public double Level { get; set; }

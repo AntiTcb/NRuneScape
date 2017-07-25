@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net; 
+using System.Net;
 using System.Threading.Tasks;
-using NRuneScape.Rest;
 using RestEase;
 
 namespace NRuneScape.API
@@ -20,6 +19,20 @@ namespace NRuneScape.API
             API = new RestClient(RuneScapeConfig.APIUrl) { ResponseDeserializer = responseDeserializer }
                 .For<IRuneScapeRestApi>();
             API.UserAgent = RuneScapeConfig.UserAgent;
+        }
+
+        internal async Task<RuneDateModel> GetUpdateTimeAsync(string route)
+        {
+            try
+            {
+                API.GERoute = route;
+                var resp = await API.GetUpdateTimeAsync();
+                return resp.GetContent();
+            }
+            catch (ApiException e) when (e.StatusCode == HttpStatusCode.NotFound)
+            {
+                return null;
+            }
         }
 
         internal async Task<ItemModel> GetItemAsync(int itemId, string route)
