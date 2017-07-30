@@ -28,7 +28,7 @@ You may install the metapackage or, pick and choose the individual components yo
 Unstable pre-release builds will be found on NuGet, displayed by toggling the pre-releases checkbox.
 
 ## Development (MyGet)
-Nightly builds are available on the project's MyGet feed. (`https://www.myget.org/gallery/nrunescape` / `https://www.myget.org/F/nrunescape/api/v3/index.json`)
+Nightly builds are available on the project's MyGet feed. (<https://www.myget.org/gallery/nrunescape> / `https://www.myget.org/F/nrunescape/api/v3/index.json`)
 
 ## Compiling
 In order to compile NRuneScape, you require:
