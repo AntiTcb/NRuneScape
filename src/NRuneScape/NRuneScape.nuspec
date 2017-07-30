@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>NRuneScape</id>
-    <version>0.0.1$suffix$</version>
+    <version>0.1.0$suffix$</version>
     <title>NRuneScape</title>
     <authors>AntiTcb</authors>
     <owners>AntiTcb</owners>
@@ -13,10 +13,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
         <group targetFramework="netstandard1.6">
-            <dependency id="NRuneScape.Core" version="0.0.1$suffix$" />
-            <dependency id="NRuneScape.Rest" version="0.0.1$suffix$" />
-            <dependency id="NRuneScape.OldSchool" version="0.0.1$suffix$" />
-            <dependency id="NRuneScape.RuneScape3" version="0.0.1$suffix$" />
+            <dependency id="NRuneScape.Core" version="0.1.0$suffix$" />
+            <dependency id="NRuneScape.Rest" version="0.1.0$suffix$" />
+            <dependency id="NRuneScape.OldSchool" version="0.1.0$suffix$" />
+            <dependency id="NRuneScape.RuneScape3" version="0.1.0$suffix$" />
         </group>
     </dependencies>
   </metadata>
