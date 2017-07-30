@@ -12,6 +12,7 @@ skip_commits:
   files:
     - docs/*
     - '**/*.html'
+    - .github/*
 
 pull_requests:
   do_not_increment_build_number: true
