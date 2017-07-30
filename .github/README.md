@@ -1,8 +1,22 @@
 # NRuneScape
-[![MyGet](https://img.shields.io/myget/nrunescape/vpre/NRuneScape.svg)](https://www.myget.org/feed/Packages/nrunescape) 
-[![Build status](https://ci.appveyor.com/api/projects/status/f3hwgo97j5e0psxx?svg=true)](https://ci.appveyor.com/project/AntiTcb/nrunescape)
+[![MyGet](https://img.shields.io/myget/nrunescape/vpre/NRuneScape.svg?label=NRuneScape)](https://www.myget.org/feed/Packages/nrunescape) 
+[![Build status](https://ci.appveyor.com/api/projects/status/f3hwgo97j5e0psxx/branch/dev?svg=true)](https://ci.appveyor.com/project/AntiTcb/nrunescape/branch/dev)
 
 An unofficial .NET API Wrapper for RuneScape (https://runescape.com / https://oldschool.runescape.com).
+
+Design is heavily based on [Discord.Net](https://github.com/RogueException/Discord.Net). 
+
+## Development Roadmap
+- [x] NRuneScape.Rest
+- - [x] Grand Exchange
+- [x] NRuneScape.OldSchool
+- - [x] Hiscores
+- [x] NRuneScape.RuneScape3 
+- - [x] Hiscores
+- - [ ] Bestiary
+- - [ ] RuneMetrics
+- - [ ] Solomon's 
+- - [ ] Website Data
 
 ## Installation
 ## Stable (NuGet)
@@ -10,7 +24,10 @@ Stable releases are found on NuGet.
 
 You may install the metapackage or, pick and choose the individual components you like.
 
-## Unstable (MyGet)
+### Unstable (NuGet)
+Unstable pre-release builds will be found on NuGet, displayed by toggling the pre-releases checkbox.
+
+## Development (MyGet)
 Nightly builds are available on the project's MyGet feed. (`https://www.myget.org/gallery/nrunescape` / `https://www.myget.org/F/nrunescape/api/v3/index.json`)
 
 ## Compiling
