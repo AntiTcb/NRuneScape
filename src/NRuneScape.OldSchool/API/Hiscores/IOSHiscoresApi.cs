@@ -1,12 +1,9 @@
-﻿using System.Threading.Tasks;
-using NRuneScape.API;
-using RestEase;
+﻿using NRuneScape.API;
 
 namespace NRuneScape.OldSchool.API
 {
-    internal interface IOSHiscoresApi : IHiscoresApi
+    internal interface IOSHiscoresApi : IHiscoresApi<HiscoreCharacter>
     {
-        [Get("m={hsRoute}{gameMode}/index_lite.ws")]
-        new Task<Response<HiscoreCharacter>> GetCharacterAsync([Query("player")]string accountName);
+
     }
 }

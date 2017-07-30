@@ -1,20 +1,20 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
 using NRuneScape.API;
+using NRuneScape.Rest;
 using RestEase;
 
-namespace NRuneScape.RuneScape3.API
+namespace NRuneScape.OldSchool.API
 {
-    internal class RS3RestApiClient : RuneScapeRestApiClient
+    internal class OSRestApiClient : RuneScapeRestApiClient
     {
-        public new IRS3RestApi API { get; }
+        public new IOSRestApi API { get; }
 
-        public RS3RestApiClient()
+        public OSRestApiClient()
         {
-            API = new RestClient(_httpClient) { ResponseDeserializer = new RS3Deserializer() }.For<IRS3RestApi>();
-            API.GERoute = EnumUtils.GetGERoute(Game.RuneScape3);
-            API.HiscoresRoute = EnumUtils.GetHiscoreRoute(Game.RuneScape3);
-            API.BestiaryRoute = "itemdb_rs/bestiary";
+            API = new RestClient(_httpClient) { ResponseDeserializer = new OSDserializer() }.For<IOSRestApi>();
+            API.GERoute = EnumUtils.GetGERoute(Game.OldSchool);
+            API.HiscoresRoute = EnumUtils.GetHiscoreRoute(Game.OldSchool);
         }
 
         internal async Task<HiscoreCharacter> GetCharacterAsync(string accountName, string gameMode, RequestOptions options)
@@ -33,8 +33,8 @@ namespace NRuneScape.RuneScape3.API
 
         internal Task<ItemModel> GetItemAsync(int itemId, RequestOptions options)
             => GetItemAsync(API.GERoute, itemId, options);
-        internal Task<ItemModel[]> GetItemsAsync(string itemName, int categoryId, GetItemParams args, RequestOptions options)
-            => GetItemsAsync(API.GERoute, itemName, categoryId, args, options);
+        internal Task<ItemModel[]> GetItemsAsync(string itemName, GetItemParams args, RequestOptions options)
+            => GetItemsAsync(API.GERoute, itemName, (int)GECategory.Ammo, args, options);
         internal async override Task<IHiscoreCharacterModel> GetCharacterAsync(string accountName, string hsRoute, string gameMode, RequestOptions options)
             => await GetCharacterAsync(accountName, gameMode, options);
     }

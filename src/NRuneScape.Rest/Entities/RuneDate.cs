@@ -3,7 +3,7 @@ using System.Diagnostics;
 using Model = NRuneScape.API.RuneDateModel;
 
 namespace NRuneScape.Rest
-{     
+{
     [DebuggerDisplay("{Value.TotalDays}")]
     public struct RuneDate 
     {
@@ -14,23 +14,21 @@ namespace NRuneScape.Rest
         /// <para>Implicit conversions to <see cref="DateTime"/> and <see cref="DateTimeOffset"/> are available.</para>
         /// </summary>
         public static RuneDate Now => new RuneDate(DateTimeOffset.Now - Origin);
-        public TimeSpan Value { get; }
-                           
+        public TimeSpan TimeSpan { get; }
+
         internal RuneDate(DateTimeOffset dto)
-            => Value = dto - Origin;
+            => TimeSpan = dto - Origin;
         internal RuneDate(TimeSpan span)
-            => Value = span;
+            => TimeSpan = span;
         internal RuneDate(Model model)  
-            => Value = TimeSpan.FromDays(model.LastUpdated);
+            => TimeSpan = TimeSpan.FromDays(model.LastUpdated);
 
         internal DateTimeOffset ToDateTimeOffset()
-            => Origin.Add(Value);
+            => Origin.Add(TimeSpan);
 
         public static implicit operator DateTimeOffset(RuneDate d)
             => d.ToDateTimeOffset();
         public static implicit operator DateTime(RuneDate d)
             => d.ToDateTimeOffset().DateTime;
-
-
     }
 }

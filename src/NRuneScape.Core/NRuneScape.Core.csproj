@@ -2,7 +2,7 @@
   <Import Project="../../NRuneScape.targets" />
     <PropertyGroup>
         <AssemblyName>NRuneScape.Core</AssemblyName>
-        <RootNamespace>NRuneScape.Core</RootNamespace>
+        <RootNamespace>NRuneScape</RootNamespace>
         <Description>The core components for the NRuneScape library.</Description>
         <TargetFrameworks>netstandard1.6</TargetFrameworks>
     </PropertyGroup>

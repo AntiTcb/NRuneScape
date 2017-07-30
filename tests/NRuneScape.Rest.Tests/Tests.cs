@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -10,8 +11,11 @@ namespace NRuneScape.Rest.Tests
         internal ClientFixture _fixture;
         internal RuneScapeRestClient _client => _fixture.Client;
 
-        public Tests(ClientFixture fixture)                         
-            => _fixture = fixture;
+        public Tests(ClientFixture fixture)
+        {
+            _fixture = fixture;
+            _client.Log += (m) => { Debug.WriteLine(m.ToString()); return Task.CompletedTask; }; 
+        }
 
         [Theory(DisplayName = "Item Stress Test")]
         [InlineData(4151, Game.OldSchool, true)]
@@ -61,8 +65,8 @@ namespace NRuneScape.Rest.Tests
             var osTime = await _client.GetUpdateTimeAsync(Game.OldSchool);
             var rs3Time = await _client.GetUpdateTimeAsync(Game.RuneScape3);
 
-            Assert.True(osTime.Value.Days <= RuneDate.Now.Value.Days);
-            Assert.True(rs3Time.Value.Days <= RuneDate.Now.Value.Days);
+            Assert.True(osTime?.TimeSpan.Days <= RuneDate.Now.TimeSpan.Days);
+            Assert.True(rs3Time?.TimeSpan.Days <= RuneDate.Now.TimeSpan.Days);
         }
 
         internal void Dispose() => _client.Dispose();

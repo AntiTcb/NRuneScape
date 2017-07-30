@@ -35,7 +35,7 @@ namespace NRuneScape.Rest
 
         public async Task UpdateAsync()
         {
-            var updatedModel = await RuneScape.ApiClient.GetItemAsync(Id, EnumUtils.GetGERoute(GameSource));
+            var updatedModel = await RuneScape.ApiClient.GetItemAsync(EnumUtils.GetGERoute(GameSource), Id, RequestOptions.Default);
             Update(updatedModel);
         }
 

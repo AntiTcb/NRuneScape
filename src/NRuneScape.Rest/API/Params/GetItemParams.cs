@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NRuneScape.API
+﻿namespace NRuneScape.API
 {
     internal class GetItemParams
     {

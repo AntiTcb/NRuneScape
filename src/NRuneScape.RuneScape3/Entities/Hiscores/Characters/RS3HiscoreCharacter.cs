@@ -32,7 +32,7 @@ namespace NRuneScape.RuneScape3
         /// <summary> Gets the Barbarian Assault - Collector hiscore for this character. </summary>
         public ActivityHiscore BarbarianAssaultCollector => _activities[Activity.BarbarianAssaultCollector];
         /// <summary> Gets the Barbarian Assault - Healer hiscore for this character. </summary>
-        public ActivityHiscore BarbarianAssaultHealer=> _activities[Activity.BarbarianAssaultHealer];
+        public ActivityHiscore BarbarianAssaultHealer => _activities[Activity.BarbarianAssaultHealer];
         /// <summary> Gets the Duel Tournament hiscore for this character. </summary>
         public ActivityHiscore DuelTournament => _activities[Activity.DuelTournament];
         /// <summary> Gets the Mobilising Armies hiscore for this character. </summary>
@@ -62,7 +62,7 @@ namespace NRuneScape.RuneScape3
         /// <summary> Gets the April Fools 2015: Cow Tipping hiscore for this character. </summary>
         public ActivityHiscore AprilFoolsCowTipping => _activities[Activity.AprilFoolsCowTipping];
         /// <summary> Gets the April Fools 2015: Rat Kills hiscore for this character. </summary>
-        public ActivityHiscore AprilFoolsRatKills  => _activities[Activity.AprilFoolsRatKills];
+        public ActivityHiscore AprilFoolsRatKills => _activities[Activity.AprilFoolsRatKills];
 
         /// <summary> Gets the Agility hiscore for this character. </summary>
         public SkillHiscore Agility => _skills[Skill.Agility];
@@ -124,10 +124,10 @@ namespace NRuneScape.RuneScape3
         private ConcurrentDictionary<Activity, ActivityHiscore> _activities;
         private ConcurrentDictionary<Skill, SkillHiscore> _skills;
 
-        /// <summary> Updates all hiscores for this character. </summary>          
+        /// <summary> Updates all hiscores for this character. </summary>
         public async Task UpdateAsync()
         {
-            var updatedModel = await RuneScape.ApiClient.GetCharacterAsync(Name, EnumUtils.GetRoute(GameMode));
+            var updatedModel = await RuneScape.ApiClient.GetCharacterAsync(Name, EnumUtils.GetRoute(GameMode), RequestOptions.Default);
             Update(updatedModel);
         }
 

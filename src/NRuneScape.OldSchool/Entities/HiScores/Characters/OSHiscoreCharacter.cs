@@ -7,7 +7,7 @@ using CharacterModel = NRuneScape.OldSchool.API.HiscoreCharacter;
 namespace NRuneScape.OldSchool
 {
     public class OSHiscoreCharacter : OSCharacter, IOSHiscoreCharacter, IUpdateable
-    {    
+    {
         /// <summary> Gets the game mode for this character. </summary>
         public GameMode GameMode { get; }
         /// <summary> Returns a collection of activity hiscores. </summary>
@@ -19,6 +19,7 @@ namespace NRuneScape.OldSchool
         public ActivityHiscore BountyHunter => _activities[Activity.BountyHunter];
         /// <summary> Gets the Bounty Hunter - Rogue hiscore for this character. </summary>
         public ActivityHiscore BountyHunterRogue => _activities[Activity.BountyHunterRogue];
+
         /// <summary> Gets the Clue Scrolls - All hiscore for this character. </summary>
         public ActivityHiscore ClueScrollsAll => _activities[Activity.ClueScrollsAll];
         /// <summary> Gets the Clue Scrolls - Easy hiscore for this character. </summary>
@@ -86,12 +87,12 @@ namespace NRuneScape.OldSchool
         private ConcurrentDictionary<Activity, ActivityHiscore> _activities;
         private ConcurrentDictionary<Skill, SkillHiscore> _skills;
 
-        /// <summary> Updates all hiscores for this character. </summary>          
+        /// <summary> Updates all hiscores for this character. </summary>
         public async Task UpdateAsync()
         {
-            var updatedModel = await RuneScape.ApiClient.GetCharacterAsync(Name, EnumUtils.GetRoute(GameMode));
+            var updatedModel = await RuneScape.ApiClient.GetCharacterAsync(Name, EnumUtils.GetRoute(GameMode), RequestOptions.Default);
             Update(updatedModel);
-        }                              
+        }
 
         internal OSHiscoreCharacter(OSRestClient client, CharacterModel model) : base(client)
         {
@@ -100,7 +101,7 @@ namespace NRuneScape.OldSchool
             Update(model);
         }
 
-        internal static OSHiscoreCharacter Create(OSRestClient client, CharacterModel model) 
+        internal static OSHiscoreCharacter Create(OSRestClient client, CharacterModel model)
             => new OSHiscoreCharacter(client, model);
 
         internal void Update(CharacterModel model)
@@ -110,9 +111,9 @@ namespace NRuneScape.OldSchool
         }
 
         //IHiscoreChracter
-        IReadOnlyDictionary<int, IActivityHiscore> IHiscoreCharacter.Activities 
+        IReadOnlyDictionary<int, IActivityHiscore> IHiscoreCharacter.Activities
             => Activities.ToDictionary(x => (int)x.Key, x => x.Value as IActivityHiscore);
-        IReadOnlyDictionary<int, ISkillHiscore> IHiscoreCharacter.Skills 
+        IReadOnlyDictionary<int, ISkillHiscore> IHiscoreCharacter.Skills
             => Skills.ToDictionary(x => (int)x.Key, x => x.Value as ISkillHiscore);
         ISkillHiscore IHiscoreCharacter.Agility => Agility;
         ISkillHiscore IHiscoreCharacter.Attack => Attack;

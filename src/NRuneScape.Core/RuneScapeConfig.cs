@@ -13,5 +13,6 @@ namespace NRuneScape
         public static readonly string APIUrl = "http://services.runescape.com";
 
         public const int MaxItemsPerPage = 12;
+        public LogSeverity LogLevel { get; set; } = LogSeverity.Info;
     }
 }

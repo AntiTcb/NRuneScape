@@ -27,7 +27,7 @@ namespace NRuneScape.RuneScape3
         {
             Name = EnumUtils.GetInfo(activity).Name,
             Rank = model.Rank,
-            Score = model.Score                
+            Score = model.Score
         };
 
         public void Deconstruct(out string name, out int? score, out int? rank)

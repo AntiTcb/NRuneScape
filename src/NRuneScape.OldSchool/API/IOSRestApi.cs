@@ -3,6 +3,7 @@
 namespace NRuneScape.OldSchool.API
 {
     internal interface IOSRestApi : IOSHiscoresApi, IRuneScapeRestApi
-    {   
+    {
+
     }
 }
