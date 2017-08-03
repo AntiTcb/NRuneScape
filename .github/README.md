@@ -7,7 +7,7 @@ An unofficial .NET API Wrapper for RuneScape (https://runescape.com / https://ol
 Design is heavily based on [Discord.Net](https://github.com/RogueException/Discord.Net). 
 
 ## Installation
-## Stable (NuGet)
+### Stable (NuGet)
 Stable releases are found on NuGet.
 
 You may install the metapackage or, pick and choose the individual components you like.
@@ -15,7 +15,7 @@ You may install the metapackage or, pick and choose the individual components yo
 ### Unstable (NuGet)
 Unstable pre-release builds will be found on NuGet, displayed by toggling the pre-releases checkbox.
 
-## Development (MyGet)
+### Development (MyGet)
 Nightly builds are available on the project's MyGet feed. (`https://www.myget.org/gallery/nrunescape` / `https://www.myget.org/F/nrunescape/api/v3/index.json`)
 
 ## Compiling
