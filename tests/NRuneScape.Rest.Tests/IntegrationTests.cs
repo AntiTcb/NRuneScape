@@ -1,20 +1,19 @@
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace NRuneScape.Rest.Tests
 {
-    public class Tests : IClassFixture<ClientFixture>
+    public class IntegrationTests : IClassFixture<ClientFixture>
     {
         internal ClientFixture _fixture;
         internal RuneScapeRestClient _client => _fixture.Client;
 
-        public Tests(ClientFixture fixture)
+        public IntegrationTests(ClientFixture fixture)
         {
             _fixture = fixture;
-            _client.Log += (m) => { Debug.WriteLine(m.ToString()); return Task.CompletedTask; }; 
+            _client.Log += (m) => { Console.WriteLine(m.ToString()); return Task.CompletedTask; }; 
         }
 
         [Theory(DisplayName = "Item Stress Test")]
@@ -27,7 +26,7 @@ namespace NRuneScape.Rest.Tests
         }
 
         [Fact]
-        public async Task GetRS3AbyssalWhipById_ReturnAbyssalWhipEntity()
+        public async Task GetRS3AbyssalWhipById_ReturnsItem()
         {
             var rs3Whip = await _client.GetItemAsync(4151, Game.RuneScape3);
             Assert.True(rs3Whip.Name == "Abyssal whip");
@@ -35,7 +34,7 @@ namespace NRuneScape.Rest.Tests
         }
 
         [Fact]
-        public async Task GetOSAbyssalWhipById_ReturnAbyssalWhipEntity()
+        public async Task GetOSAbyssalWhipById_ReturnsItem()
         {
             var osWhip = await _client.GetItemAsync(4151, Game.OldSchool);
             Assert.True(osWhip.Name == "Abyssal whip");
@@ -50,10 +49,13 @@ namespace NRuneScape.Rest.Tests
             Assert.True(abyssalWhip.Name == "Abyssal whip");
             Assert.True(abyssalWhip.Id == 4151);
             Assert.True(await items.Count() == 1);
+
+            var items2 = await _client.GetItemsAsync("Rune 2h sword", Game.OldSchool, GECategory.OldSchool).ToArray();
+            Assert.Equal(items2.Length, 1);
         }
 
         [Fact]
-        public async Task GetCharacter_ThrowsNotSupportedException()
+        public async Task GetCharacter_ReturnsNull()
         {
             var chara = await (_client as IRuneScapeClient).GetCharacterAsync("anti-tcb", Game.OldSchool, GameMode.Regular);
             Assert.Null(chara);
