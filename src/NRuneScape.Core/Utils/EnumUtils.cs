@@ -12,7 +12,11 @@ namespace NRuneScape
         public static string GetHiscoreRoute<T>(T value) where T : struct
             => GetRoute<T, HiscoreRouteAttribute>(value);
 
-        internal static string GetRoute<TEnum, TAttr>(TEnum value) 
+        public static T Parse<T>(string value, bool ignoreCase)
+            where T : struct
+            => (T)Enum.Parse(typeof(T), value, ignoreCase);
+
+        public static string GetRoute<TEnum, TAttr>(TEnum value) 
             where TEnum : struct
             where TAttr : RouteAttribute
         {
@@ -28,7 +32,7 @@ namespace NRuneScape
             return info;
         }
 
-        private static TAttr GetAttribute<TVal, TAttr>(this TVal value) where TVal : struct where TAttr : Attribute
+        public static TAttr GetAttribute<TVal, TAttr>(this TVal value) where TVal : struct where TAttr : Attribute
         {
             if (!typeof(TVal).GetTypeInfo().IsEnum)
                 throw new ArgumentException($"{nameof(TVal)} must be an enumerated type.");
