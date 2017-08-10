@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using NRuneScape.API;
 using RestEase;
@@ -21,11 +22,11 @@ namespace NRuneScape.RuneScape3.API
         [Get("m={bestiaryRoute}/areaBeasts.json")]
         Task<Response<LabelValueModel[]>> GetAreaBeastsAsync([Query] string identifier, CancellationToken ct);
         [Get("m={bestiaryRoute}/slayerCatNames.json")]
-        Task<Response<(string CategoryName, int CategoryId)[]>> GetSlayerCategoriesAsync(CancellationToken ct);
+        Task<Response<Dictionary<string, int>>> GetSlayerCategoriesAsync(CancellationToken ct);
         [Get("m={bestiaryRoute}/slayerBeasts.json")]
-        Task<Response<LabelValueModel[]>> GetMonstersBySlayerCategoryAsync([Query] int identifier, CancellationToken ct);
+        Task<Response<LabelValueModel[]>> GetSlayerMonstersAsync([Query] int identifier, CancellationToken ct);
         [Get("m={bestiaryRoute}/weaknessNames.json")]
-        Task<Response<(string WeaknessName, int WeaknessId)[]>> GetSlayerWeaknessesAsync(CancellationToken ct);
+        Task<Response<Dictionary<string, int>>> GetSlayerWeaknessesAsync(CancellationToken ct);
         [Get("m={bestiaryRoute}/weaknessBeasts.json")]
         Task<Response<LabelValueModel[]>> GetMonstersByWeaknessAsync([Query] int identifier, CancellationToken ct);
         [Get("m={bestiaryRoute}/levelGroup.json")]

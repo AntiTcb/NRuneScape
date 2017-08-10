@@ -5,15 +5,15 @@ using RestEase;
 
 namespace NRuneScape.RuneScape3.API
 {
-    internal interface IRS3HiscoresApi : IHiscoresApi<HiscoreCharacter>
+    internal interface IRS3HiscoresApi : IHiscoresApi<HiscoreCharacterModel>
     {
         [Get("m=temp-hiscores/getRankings.json")]
-        Task<Response<object[]>> GetRankingAsync([Query("player")] string accountName, [Query("status")] string archived, CancellationToken ct);
+        Task<Response<SeasonalRankingModel[]>> GetSeasonalRankingAsync([Query("player")] string accountName, [Query("status")] string archived, CancellationToken ct);
         [Get("m=temp-hiscores/getHiscoreDetails.json")]
-        Task<Response<object[]>> GetHiscoreDetailsAsync([Query("status")] string archived, CancellationToken ct);
+        Task<Response<SeasonalDetailsModel[]>> GetSeasonalDetailsAsync([Query("status")] string archived, CancellationToken ct);
         [Get("m=clan-hiscores/clanRanking.json")]
-        Task<Response<object[]>> GetTopThreeClansAsync(CancellationToken ct);
+        Task<Response<ClanRankingModel[]>> GetTopThreeClansAsync(CancellationToken ct);
         [Get("m=clan-hiscores/members_lite.ws")]
-        Task<Response<object[]>> GetClanMembersAsync([Query("clanName")] string clanName, CancellationToken ct);
+        Task<Response<ClanMemberModel[]>> GetClanMembersAsync([Query("clanName")] string clanName, CancellationToken ct);
     }
 }

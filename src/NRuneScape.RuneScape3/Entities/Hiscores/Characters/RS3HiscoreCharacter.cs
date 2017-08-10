@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CharacterModel = NRuneScape.RuneScape3.API.HiscoreCharacter;
+using CharacterModel = NRuneScape.RuneScape3.API.HiscoreCharacterModel;
 
 namespace NRuneScape.RuneScape3
 {

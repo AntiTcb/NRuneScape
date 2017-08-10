@@ -5,7 +5,7 @@ using NRuneScape.API;
 
 namespace NRuneScape.RuneScape3.API
 {
-    internal sealed class RS3HiscoreData
+    internal class RS3HiscoreData
     {
         public ConcurrentDictionary<Activity, ActivityHiscore> Activities { get; set; }
         public ConcurrentDictionary<Skill, SkillHiscore> Skills { get; set; }
@@ -43,7 +43,7 @@ namespace NRuneScape.RuneScape3.API
 
         public static RS3HiscoreData Parse(string data)
         {
-            var splitData = data.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var splitData = data.Split('\n', StringSplitOptions.RemoveEmptyEntries);
             var hiScores = splitData.Select(d => SkillHiscoreModel.TryParseData(d, out var skill) ? skill as IHiscoreModel : ActivityHiscoreModel.ParseData(d)).ToArray();
 
             return new RS3HiscoreData(hiScores);

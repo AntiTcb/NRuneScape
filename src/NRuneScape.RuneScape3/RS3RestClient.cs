@@ -19,7 +19,7 @@ namespace NRuneScape.RuneScape3
             : base(config, client) => ApiClient = client as RS3RestApiClient;
 
         /// <summary>
-        /// Gets the <see cref="HiscoreCharacter"/> with the given name and game mode, or null if not found.
+        /// Gets the <see cref="HiscoreCharacterModel"/> with the given name and game mode, or null if not found.
         /// </summary>
         public Task<RS3HiscoreCharacter> GetCharacterAsync(string accountName, GameMode gameMode = GameMode.Regular, RequestOptions options = null)
             => RS3ClientHelper.GetCharacterAsync(this, accountName, gameMode, options ?? RequestOptions.Default);
