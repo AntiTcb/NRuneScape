@@ -33,10 +33,16 @@ namespace NRuneScape.OldSchool.API
         }
 
         //GE
+        internal Task<CategoryInfoModel[]> GetCategoryInfoAsync(RequestOptions options)
+            => GetCategoryInfoAsync(API.GERoute, (int)GECategory.OldSchool, options);
         internal Task<ItemModel> GetItemAsync(int itemId, RequestOptions options)
             => GetItemAsync(API.GERoute, itemId, options);
         internal Task<ItemModel[]> GetItemsAsync(string itemName, GetItemParams args, RequestOptions options)
-            => GetItemsAsync(API.GERoute, itemName, (int)GECategory.Ammo, args, options);
+            => GetItemsAsync(API.GERoute, itemName, (int)GECategory.OldSchool, args, options);
+        internal Task<GraphModel> GetItemGraphAsync(int itemId, RequestOptions options)
+            => GetItemGraphAsync(API.GERoute, itemId, options);
+        internal Task<RuneDateModel> GetUpdateTimeAsync(RequestOptions options)
+            => GetUpdateTimeAsync(API.GERoute, options);
         internal async override Task<IHiscoreCharacterModel> GetCharacterAsync(string accountName, string hsRoute, string gameMode, RequestOptions options)
             => await GetCharacterAsync(accountName, gameMode, options);
     }
