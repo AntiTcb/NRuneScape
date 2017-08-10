@@ -17,6 +17,7 @@ namespace NRuneScape.OldSchool.API
             API.HiscoresRoute = EnumUtils.GetHiscoreRoute(Game.OldSchool);
         }
 
+        //Hiscores
         internal async Task<HiscoreCharacter> GetCharacterAsync(string accountName, string gameMode, RequestOptions options)
         {
             Preconditions.NotNullOrWhitespace(accountName, nameof(accountName));
@@ -31,6 +32,7 @@ namespace NRuneScape.OldSchool.API
             catch (ApiException e) when (e.StatusCode == HttpStatusCode.NotFound) { return null; }
         }
 
+        //GE
         internal Task<ItemModel> GetItemAsync(int itemId, RequestOptions options)
             => GetItemAsync(API.GERoute, itemId, options);
         internal Task<ItemModel[]> GetItemsAsync(string itemName, GetItemParams args, RequestOptions options)
