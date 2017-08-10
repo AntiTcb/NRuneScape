@@ -13,6 +13,9 @@ namespace NRuneScape.Rest
         internal RuneScapeRestClient(RuneScapeRestConfig config, RuneScapeRestApiClient client)
             : base(config, client) { }
 
+        public Task<IReadOnlyDictionary<char, CategoryInfo>> GetCategoryInfoAsync(Game game, GECategory category, RequestOptions options = null)
+            => ClientHelper.GetCategoryInfoAsync(this, game, category, options ?? RequestOptions.Default);
+
         /// <summary> Gets an item by id from the requested game. </summary>
         public Task<Item> GetItemAsync(int itemId, Game game, RequestOptions options = null)
             => ClientHelper.GetItemAsync(this, itemId, game, options ?? RequestOptions.Default);
@@ -20,6 +23,9 @@ namespace NRuneScape.Rest
         /// <summary> Gets a collection of items whose name start with the input query, from the requested game and Grand Exchange category. </summary>
         public IAsyncEnumerable<Item> GetItemsAsync(string itemName, Game game, GECategory category, int? limit = null, RequestOptions options = null)
             => ClientHelper.GetItemsAsync(this, itemName.ToLowerInvariant(), game, category, limit, options ?? RequestOptions.Default);
+
+        public Task<ItemGraph> GetItemGraphAsync(int itemId, Game game, RequestOptions options = null)
+            => ClientHelper.GetItemGraphAsync(this, itemId, game, options ?? RequestOptions.Default);
 
         /// <summary> Gets the last update time for the Grand Exchange from the requested game. </summary>
         public Task<RuneDate?> GetUpdateTimeAsync(Game game, RequestOptions options = null)

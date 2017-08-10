@@ -10,6 +10,7 @@ namespace NRuneScape.API
 {
     internal class RuneScapeRestApiClient : IDisposable
     {
+        // TODO: Logging
         public event Func<string, Task> SentRequest {
             add => _sentRequestEvent.Add(value);
             remove => _sentRequestEvent.Remove(value);
@@ -95,7 +96,6 @@ namespace NRuneScape.API
             }
             catch (ApiException e) when (e.StatusCode == HttpStatusCode.NotFound) { return null; }
         }
-
         internal async Task<Stream> GetItemImageAsync(string route, int itemId, string imageSize, RequestOptions options)
         {
             Preconditions.NotNullOrWhitespace(route, nameof(route));

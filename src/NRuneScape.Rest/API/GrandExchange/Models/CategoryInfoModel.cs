@@ -13,7 +13,7 @@ namespace NRuneScape.API
     internal class CategoryInfoModel
     {
         [JsonProperty("letter")]
-        public string Letter { get; set; }
+        public char Letter { get; set; }
         [JsonProperty("Items")]
         public int ItemCount { get; set; }
     }

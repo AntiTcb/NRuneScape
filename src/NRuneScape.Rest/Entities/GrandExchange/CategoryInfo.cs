@@ -12,7 +12,7 @@ namespace NRuneScape.Rest
         internal CategoryInfo(RuneScapeRestClient client, Game game, Model model) 
             : base(client, game)
         {
-            Letter = model.Letter[0];
+            Letter = model.Letter;
             ItemCount = model.ItemCount;
         }
 

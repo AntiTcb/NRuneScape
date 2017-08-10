@@ -12,7 +12,7 @@ namespace NRuneScape
     {
         // Grand Exchange
         // TODO: RequestOptions
-        public static async Task<IReadOnlyCollection<CategoryInfo>> GetCategoryInfoAsync(RuneScapeRestClient client, Game game, GECategory category, RequestOptions options)
+        public static async Task<IReadOnlyDictionary<char, CategoryInfo>> GetCategoryInfoAsync(RuneScapeRestClient client, Game game, GECategory category, RequestOptions options)
         {
             string route = EnumUtils.GetGERoute(game);
 
@@ -21,7 +21,7 @@ namespace NRuneScape
                 return null;
 
             var entities = model.Select(x => new CategoryInfo(client, game, x))
-            .ToReadOnlyCollection(() => model.Length);
+                .ToDictionary(k => k.Letter, v => v);
             return entities;
         }
         public static async Task<Item> GetItemAsync(RuneScapeRestClient client, int itemId, Game game, RequestOptions options)
@@ -66,6 +66,17 @@ namespace NRuneScape
 
                 count: limit
             );
+        }
+        public static async Task<ItemGraph> GetItemGraphAsync(RuneScapeRestClient client, int itemId, Game game, RequestOptions options)
+        {
+            string route = EnumUtils.GetGERoute(game);
+
+            var model = await client.ApiClient.GetItemGraphAsync(route, itemId, options);
+            if (model == null)
+                return null;
+
+            var entity = new ItemGraph(client, game, itemId, model);
+            return entity;
         }
         public static async Task<Stream> GetItemImageAsync(RuneScapeRestClient client, int itemId, Game game, ItemImageSize size, RequestOptions options)
         {

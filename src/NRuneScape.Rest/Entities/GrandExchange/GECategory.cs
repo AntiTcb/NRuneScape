@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NRuneScape.Rest
+﻿namespace NRuneScape.Rest
 {
     public enum GECategory
-    {            
+    {
         Miscellaneous = 0,
         Ammo = 1,
         Arrows = 2,
@@ -43,6 +39,8 @@ namespace NRuneScape.Rest
         SummoningScrolls = 34,
         ToolsAndContainers = 35,
         WoodcuttingProduct = 36,
-        PocketItems = 37
+        PocketItems = 37,
+        // Old School items are all in ammo category
+        OldSchool = Ammo
     }
 }
