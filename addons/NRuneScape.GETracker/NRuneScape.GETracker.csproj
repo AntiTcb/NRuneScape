@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>NRuneScape.GETracker</RootNamespace>
+    <AssemblyName>NRuneScape.GETracker</AssemblyName>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors>NU1605</WarningsAsErrors>
+    <NoWarn>1701;1702;CS8618;CS1998</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\NRuneScape.Core\NRuneScape.Core.csproj" />
+    <ProjectReference Include="..\..\src\NRuneScape.OldSchool\NRuneScape.OldSchool.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Leaderboard\" />
+  </ItemGroup>
+
+</Project>
