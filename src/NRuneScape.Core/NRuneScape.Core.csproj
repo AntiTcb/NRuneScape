@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>NRuneScape</RootNamespace>
+    <AssemblyName>NRuneScape.Core</AssemblyName>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RestEase" Version="1.4.9" />
+    <PackageReference Include="Voltaic.Serialization.Json" Version="0.2.1-build-00011" />
+  </ItemGroup>
+
+</Project>

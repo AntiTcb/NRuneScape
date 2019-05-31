@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>NRuneScape.OldSchool</RootNamespace>
+    <AssemblyName>NRuneScape.OldSchool</AssemblyName>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NRuneScape.Core\NRuneScape.Core.csproj" />
+  </ItemGroup>
+
+</Project>
