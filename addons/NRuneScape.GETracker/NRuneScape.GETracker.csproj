@@ -17,8 +17,4 @@
     <ProjectReference Include="..\..\src\NRuneScape.OldSchool\NRuneScape.OldSchool.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\Leaderboard\" />
-  </ItemGroup>
-
 </Project>
